@@ -1,0 +1,25 @@
+source:
+  live: true
+
+build:
+  framework: react
+  entry: src/components/index.ts
+
+install:
+  installCwd: .
+  installCommand: pnpm install --prefer-offline --frozen-lockfile
+  packageManager: pnpm
+
+cssEngine: compiled
+
+scope:
+  - Calendar
+  - TimeSlotGrid
+  - EventTypeCard
+  - BookingConfirmation
+  - Button
+  - Input
+  - Textarea
+  - Avatar
+  - EventTypeForm
+  - Section

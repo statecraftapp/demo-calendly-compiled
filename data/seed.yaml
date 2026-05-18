@@ -1,0 +1,71 @@
+currentUserId: user-1
+eventTypes:
+  - id: et-quick
+    name: Quick chat
+    durationMinutes: 15
+    color: "#0069ff"
+    description: A short sync to align on a single topic. Bring one question.
+    slug: quick-chat
+  - id: et-thirty
+    name: 30-min call
+    durationMinutes: 30
+    color: "#10b981"
+    description: Discovery call or working session. Agenda shared in the invite.
+    slug: 30-min-call
+  - id: et-hour
+    name: 1-hour deep dive
+    durationMinutes: 60
+    color: "#f59e0b"
+    description: Working session for strategy, design review, or pair-debugging.
+    slug: deep-dive
+  - id: et-office
+    name: Office hours
+    durationMinutes: 30
+    color: "#a855f7"
+    description: Open Q&A. Drop in with anything on your mind.
+    slug: office-hours
+availability:
+  - weekday: 1
+    startMin: 540
+    endMin: 1020
+  - weekday: 2
+    startMin: 540
+    endMin: 1020
+  - weekday: 3
+    startMin: 540
+    endMin: 1020
+  - weekday: 4
+    startMin: 540
+    endMin: 1020
+  - weekday: 5
+    startMin: 540
+    endMin: 1020
+bookings:
+  - id: bk-1
+    eventTypeId: et-quick
+    inviteeName: Mira Chen
+    inviteeEmail: mira@example.com
+    startAt: "2026-05-19T15:00:00.000Z"
+    durationMinutes: 15
+    notes: "Quick question about the new pricing page."
+  - id: bk-2
+    eventTypeId: et-thirty
+    inviteeName: Jordan Lee
+    inviteeEmail: jordan@acme.dev
+    startAt: "2026-05-20T17:30:00.000Z"
+    durationMinutes: 30
+    notes: ""
+  - id: bk-3
+    eventTypeId: et-hour
+    inviteeName: Priya Raman
+    inviteeEmail: priya@stripe.com
+    startAt: "2026-05-21T19:00:00.000Z"
+    durationMinutes: 60
+    notes: "Want to walk through the dashboard wireframes together."
+  - id: bk-4
+    eventTypeId: et-office
+    inviteeName: Sam O'Neill
+    inviteeEmail: sam@indie.so
+    startAt: "2026-05-22T16:00:00.000Z"
+    durationMinutes: 30
+    notes: ""

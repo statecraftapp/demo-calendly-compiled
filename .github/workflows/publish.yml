@@ -1,0 +1,35 @@
+name: Publish design system
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Install statecraft CLI
+        run: |
+          set -euo pipefail
+          curl -fsSL -o statecraft-cli.tar.gz \
+            https://github.com/statecraftapp/statecraft-cli/releases/latest/download/statecraft-linux-x86_64.tar.gz
+          tar -xzf statecraft-cli.tar.gz
+          chmod +x ./statecraft
+          ./statecraft --version
+      - name: Publish
+        env:
+          STATECRAFT_TOKEN: ${{ secrets.STATECRAFT_TOKEN }}
+        run: ./statecraft publish --slug demo-calendly-compiled --manifest statecraft.yaml --token "$STATECRAFT_TOKEN"
