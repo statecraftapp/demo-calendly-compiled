@@ -23,3 +23,231 @@ scope:
   - Avatar
   - EventTypeForm
   - Section
+
+fallbackProps:
+  - name: children
+    type: expression
+    label: Content
+    group: content
+  - name: className
+    type: string
+    label: Class Name
+    group: appearance
+  - name: style
+    type: expression
+    label: Style Object
+    group: appearance
+
+components:
+  - label: Button
+    tagName: Button
+    category: Buttons
+    snippet: "<Button>Click me</Button>"
+    props:
+      - name: variant
+        type: string
+        label: Variant
+        group: appearance
+        defaultValue: primary
+        options:
+          - { label: Primary, value: primary }
+          - { label: Secondary, value: secondary }
+          - { label: Ghost, value: ghost }
+          - { label: Danger, value: danger }
+      - name: size
+        type: string
+        label: Size
+        group: appearance
+        defaultValue: md
+        options:
+          - { label: Small, value: sm }
+          - { label: Medium, value: md }
+          - { label: Large, value: lg }
+      - name: disabled
+        type: boolean
+        label: Disabled
+        group: state
+      - name: children
+        type: expression
+        label: Content
+        group: content
+  - label: Input
+    tagName: Input
+    category: Forms
+    snippet: "<Input placeholder=\"you@example.com\" />"
+    props:
+      - name: placeholder
+        type: string
+        label: Placeholder
+        group: content
+      - name: value
+        type: string
+        label: Value
+        group: content
+      - name: type
+        type: string
+        label: Type
+        group: content
+        defaultValue: text
+        options:
+          - { label: Text, value: text }
+          - { label: Email, value: email }
+          - { label: Password, value: password }
+          - { label: Number, value: number }
+      - name: disabled
+        type: boolean
+        label: Disabled
+        group: state
+  - label: Textarea
+    tagName: Textarea
+    category: Forms
+    snippet: "<Textarea placeholder=\"What is this meeting about?\" />"
+    props:
+      - name: placeholder
+        type: string
+        label: Placeholder
+        group: content
+      - name: value
+        type: string
+        label: Value
+        group: content
+      - name: rows
+        type: number
+        label: Rows
+        group: appearance
+      - name: disabled
+        type: boolean
+        label: Disabled
+        group: state
+  - label: Avatar
+    tagName: Avatar
+    category: Display
+    snippet: "<Avatar name=\"Sam Smith\" />"
+    props:
+      - name: name
+        type: string
+        label: Name
+        group: content
+      - name: size
+        type: string
+        label: Size
+        group: appearance
+        defaultValue: md
+        options:
+          - { label: Small, value: sm }
+          - { label: Medium, value: md }
+          - { label: Large, value: lg }
+  - label: Calendar
+    tagName: Calendar
+    category: Forms
+    snippet: "<Calendar\n  selectedDate={new Date()}\n  onSelectDate={(d) => {}}\n/>"
+    props:
+      - name: selectedDate
+        type: expression
+        label: Selected Date
+        group: state
+      - name: onSelectDate
+        type: expression
+        label: On Select Date
+        group: state
+      - name: isDateAvailable
+        type: expression
+        label: Is Date Available
+        group: state
+  - label: TimeSlotGrid
+    tagName: TimeSlotGrid
+    category: Forms
+    snippet: "<TimeSlotGrid\n  date={new Date()}\n  slots={[]}\n  selected={null}\n  onPick={(s) => {}}\n/>"
+    props:
+      - name: date
+        type: expression
+        label: Date
+        group: state
+      - name: slots
+        type: expression
+        label: Slots
+        group: content
+      - name: selected
+        type: expression
+        label: Selected
+        group: state
+      - name: onPick
+        type: expression
+        label: On Pick
+        group: state
+  - label: EventTypeCard
+    tagName: EventTypeCard
+    category: Display
+    snippet: "<EventTypeCard eventType={eventType} />"
+    props:
+      - name: eventType
+        type: expression
+        label: Event Type
+        group: content
+      - name: onEdit
+        type: expression
+        label: On Edit
+        group: state
+      - name: onDelete
+        type: expression
+        label: On Delete
+        group: state
+      - name: onCopyLink
+        type: expression
+        label: On Copy Link
+        group: state
+      - name: onOpen
+        type: expression
+        label: On Open
+        group: state
+  - label: BookingConfirmation
+    tagName: BookingConfirmation
+    category: Display
+    snippet: "<BookingConfirmation booking={booking} eventType={eventType} />"
+    props:
+      - name: booking
+        type: expression
+        label: Booking
+        group: content
+      - name: eventType
+        type: expression
+        label: Event Type
+        group: content
+  - label: EventTypeForm
+    tagName: EventTypeForm
+    category: Overlays
+    snippet: "<EventTypeForm\n  initial={null}\n  onClose={() => {}}\n  onSubmit={(values) => {}}\n/>"
+    props:
+      - name: initial
+        type: expression
+        label: Initial Values
+        group: content
+      - name: onClose
+        type: expression
+        label: On Close
+        group: state
+      - name: onSubmit
+        type: expression
+        label: On Submit
+        group: state
+  - label: Section
+    tagName: Section
+    category: Layout
+    snippet: "<Section title=\"Event types\" subtitle=\"Things people can book\">\n  Content\n</Section>"
+    props:
+      - name: title
+        type: string
+        label: Title
+        group: content
+      - name: subtitle
+        type: string
+        label: Subtitle
+        group: content
+      - name: actions
+        type: expression
+        label: Actions
+        group: content
+      - name: children
+        type: expression
+        label: Content
+        group: content
