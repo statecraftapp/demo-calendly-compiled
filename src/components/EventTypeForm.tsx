@@ -5,29 +5,18 @@ import type { EventType, EventTypeDuration } from '../store/types';
 import { Button } from './Button';
 import { Input } from './Input';
 import { Textarea } from './Textarea';
-import { X } from 'lucide-react';
-
-const Overlay = styled.div({
-  position: 'fixed',
-  inset: 0,
-  background: 'rgba(11, 23, 51, 0.45)',
-  display: 'flex',
-  alignItems: 'flex-start',
-  justifyContent: 'center',
-  padding: '60px 16px',
-  zIndex: 100,
-});
 
 const Sheet = styled.div({
   background: '#ffffff',
   borderRadius: '16px',
   width: '100%',
-  maxWidth: '480px',
+  maxWidth: '560px',
+  margin: '0 auto',
   padding: '28px',
   display: 'flex',
   flexDirection: 'column',
   gap: '20px',
-  boxShadow: '0 24px 48px rgba(11, 23, 51, 0.18)',
+  border: '1px solid #e6e9f0',
 });
 
 const Header = styled.div({
@@ -41,18 +30,6 @@ const Title = styled.h2({
   fontSize: '18px',
   fontWeight: 700,
   color: '#0b1733',
-});
-
-const CloseBtn = styled.button({
-  appearance: 'none',
-  border: 0,
-  background: 'transparent',
-  padding: '6px',
-  borderRadius: '8px',
-  cursor: 'pointer',
-  color: '#5b6478',
-  display: 'inline-flex',
-  '&:hover': { background: '#f0f2f7', color: '#0b1733' },
 });
 
 const Field = styled.label({
@@ -134,11 +111,11 @@ export interface EventTypeFormValues {
 
 export interface EventTypeFormProps {
   initial?: EventType | null;
-  onClose: () => void;
+  onCancel: () => void;
   onSubmit: (values: EventTypeFormValues) => void;
 }
 
-export function EventTypeForm({ initial, onClose, onSubmit }: EventTypeFormProps) {
+export function EventTypeForm({ initial, onCancel, onSubmit }: EventTypeFormProps) {
   const [name, setName] = useState(initial?.name ?? '');
   const [duration, setDuration] = useState<EventTypeDuration>(initial?.durationMinutes ?? 30);
   const [color, setColor] = useState(initial?.color ?? COLORS[0]);
@@ -163,14 +140,10 @@ export function EventTypeForm({ initial, onClose, onSubmit }: EventTypeFormProps
   }
 
   return (
-    <Overlay onClick={onClose}>
-      <Sheet onClick={(e: React.MouseEvent) => e.stopPropagation()}>
-        <form onSubmit={submit} style={{ display: 'contents' }}>
+    <Sheet>
+      <form onSubmit={submit} style={{ display: 'contents' }}>
         <Header>
           <Title>{initial ? 'Edit event type' : 'New event type'}</Title>
-          <CloseBtn type="button" aria-label="Close" onClick={onClose}>
-            <X size={18} />
-          </CloseBtn>
         </Header>
         <Field>
           Name
@@ -234,15 +207,14 @@ export function EventTypeForm({ initial, onClose, onSubmit }: EventTypeFormProps
           />
         </Field>
         <Footer>
-          <Button type="button" variant="ghost" onClick={onClose}>
+          <Button type="button" variant="ghost" onClick={onCancel}>
             Cancel
           </Button>
           <Button type="submit" variant="primary" disabled={!name.trim()}>
             {initial ? 'Save changes' : 'Create event type'}
           </Button>
         </Footer>
-        </form>
-      </Sheet>
-    </Overlay>
+      </form>
+    </Sheet>
   );
 }

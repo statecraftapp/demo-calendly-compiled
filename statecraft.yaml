@@ -215,16 +215,16 @@ components:
         group: content
   - label: EventTypeForm
     tagName: EventTypeForm
-    category: Overlays
-    snippet: "<EventTypeForm\n  initial={null}\n  onClose={() => {}}\n  onSubmit={(values) => {}}\n/>"
+    category: Forms
+    snippet: "<EventTypeForm\n  initial={null}\n  onCancel={() => {}}\n  onSubmit={(values) => {}}\n/>"
     props:
       - name: initial
         type: expression
         label: Initial Values
         group: content
-      - name: onClose
+      - name: onCancel
         type: expression
-        label: On Close
+        label: On Cancel
         group: state
       - name: onSubmit
         type: expression

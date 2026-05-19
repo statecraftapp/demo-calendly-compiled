@@ -4,6 +4,7 @@ import { Dashboard } from './routes/Dashboard';
 import { Book } from './routes/Book';
 import { BookingDetail } from './routes/BookingDetail';
 import { Availability } from './routes/Availability';
+import { EventTypeFormRoute } from './routes/EventTypeFormRoute';
 import { resetToSeed } from './store/yamlStore';
 import { Avatar } from './components/Avatar';
 import { Calendar as CalendarIcon } from 'lucide-react';
@@ -160,6 +161,8 @@ export default function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
+          <Route path="/event-types/new" element={<EventTypeFormRoute />} />
+          <Route path="/event-types/:id/edit" element={<EventTypeFormRoute />} />
           <Route path="/book/:slug" element={<Book />} />
           <Route path="/booking/:id" element={<BookingDetail />} />
           <Route path="/availability" element={<Availability />} />
