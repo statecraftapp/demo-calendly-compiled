@@ -4,7 +4,6 @@ import {
   setHours,
   setMinutes,
   setSeconds,
-  set
   setMilliseconds,
 } from "date-fns";
 import type { AvailabilitySlot } from "../store/types";
