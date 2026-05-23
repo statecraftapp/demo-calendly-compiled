@@ -11,7 +11,7 @@ jobs:
       pull-requests: write # for the sticky comment
       contents: read
     steps:
-      - uses: statecraftapp/pr-review-action@v1
+      - uses: statecraftapp/pr-review-action@v2
         with:
           statecraft-token: ${{ secrets.STATECRAFT_PR_REVIEW_TOKEN }}
           # Optional: narrow what the survey agent considers.
