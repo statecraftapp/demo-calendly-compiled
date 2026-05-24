@@ -3,80 +3,144 @@ slug: demo-calendly-compiled
 source:
   live: true
 
-build:
-  framework: react
-  entry: src/components/index.ts
+stylesheets: []
+globalCss: ""
 
-install:
-  installCwd: .
-  installCommand: pnpm install --prefer-offline --frozen-lockfile
-  packageManager: pnpm
-
-cssEngine: compiled
-
-scope:
-  - Calendar
-  - TimeSlotGrid
-  - EventTypeCard
-  - BookingConfirmation
-  - Button
-  - Input
-  - Textarea
-  - Avatar
-  - EventTypeForm
-  - Section
+tokens:
+  colors:
+    brand: "#0069ff"
+    brandHover: "#0057d6"
+    brandSoft: "rgba(0, 105, 255, 0.08)"
+    text: "#0b1733"
+    textMuted: "#5b6478"
+    textSubtle: "#9aa3b7"
+    bg: "#ffffff"
+    bgSoft: "#f7f8fb"
+    bgHover: "#f0f2f7"
+    border: "#e6e9f0"
+    borderStrong: "#d6dbe6"
+    success: "#10b981"
+    warning: "#f59e0b"
+    danger: "#ef4444"
+    info: "#06b6d4"
+    purple: "#a855f7"
+  spacing:
+    xs: 4px
+    sm: 8px
+    md: 12px
+    lg: 16px
+    xl: 24px
+    2xl: 32px
+  radii:
+    sm: 6px
+    md: 10px
+    lg: 16px
+    xl: 20px
+    pill: 999px
+  fontSizes:
+    xs: 11px
+    sm: 13px
+    md: 14px
+    lg: 15px
+    xl: 17px
+    2xl: 24px
+  shadows:
+    card: "0 4px 18px rgba(11, 23, 51, 0.06)"
+    elevated: "0 8px 24px rgba(11, 23, 51, 0.05)"
 
 fallbackProps:
   - name: children
     type: expression
     label: Content
-    group: content
   - name: className
     type: string
     label: Class Name
-    group: appearance
   - name: style
     type: expression
     label: Style Object
-    group: appearance
+
+scope:
+  - Button
+  - Input
+  - Textarea
+  - Avatar
+  - Calendar
+  - TimeSlotGrid
+  - EventTypeCard
+  - EventTypeForm
+  - BookingConfirmation
+  - Section
 
 components:
   - label: Button
     tagName: Button
-    category: Buttons
-    snippet: "<Button>Click me</Button>"
+    category: Actions
+    snippet: "<Button variant=\"primary\" size=\"md\">Schedule</Button>"
+    description: "Pill-shaped button with primary, secondary, ghost, and danger variants in three sizes."
     props:
       - name: variant
         type: string
         label: Variant
+        defaultValue: "primary"
         group: appearance
-        defaultValue: primary
         options:
-          - { label: Primary, value: primary }
-          - { label: Secondary, value: secondary }
-          - { label: Ghost, value: ghost }
-          - { label: Danger, value: danger }
+          - label: Primary
+            value: "primary"
+          - label: Secondary
+            value: "secondary"
+          - label: Ghost
+            value: "ghost"
+          - label: Danger
+            value: "danger"
       - name: size
         type: string
         label: Size
-        group: appearance
-        defaultValue: md
+        defaultValue: "md"
+        group: layout
         options:
-          - { label: Small, value: sm }
-          - { label: Medium, value: md }
-          - { label: Large, value: lg }
+          - label: Small
+            value: "sm"
+          - label: Medium
+            value: "md"
+          - label: Large
+            value: "lg"
       - name: disabled
         type: boolean
         label: Disabled
+        defaultValue: "false"
+        group: state
+      - name: type
+        type: string
+        label: Type
+        group: state
+        options:
+          - label: button
+            value: "button"
+          - label: submit
+            value: "submit"
+          - label: reset
+            value: "reset"
+      - name: onClick
+        type: expression
+        label: "On Click"
         group: state
       - name: children
         type: expression
         label: Content
         group: content
+      - name: className
+        type: string
+        label: "Class Name"
+        group: appearance
+      - name: style
+        type: expression
+        label: "Style Object"
+        group: appearance
   - label: Input
     tagName: Input
     category: Forms
-    snippet: '<Input placeholder="you@example.com" />'
+    snippet: "<Input placeholder=\"Your email\" />"
+    description: "Single-line text input with focus ring and disabled styling."
     props:
       - name: placeholder
         type: string
@@ -89,21 +153,47 @@ components:
       - name: type
         type: string
         label: Type
-        group: content
-        defaultValue: text
+        defaultValue: "text"
+        group: state
         options:
-          - { label: Text, value: text }
-          - { label: Email, value: email }
-          - { label: Password, value: password }
-          - { label: Number, value: number }
+          - label: text
+            value: "text"
+          - label: email
+            value: "email"
+          - label: password
+            value: "password"
+          - label: number
+            value: "number"
+          - label: tel
+            value: "tel"
+          - label: url
+            value: "url"
       - name: disabled
         type: boolean
         label: Disabled
+        defaultValue: "false"
         group: state
+      - name: onChange
+        type: expression
+        label: "On Change"
+        group: state
+      - name: children
+        type: expression
+        label: Content
+        group: content
+      - name: className
+        type: string
+        label: "Class Name"
+        group: appearance
+      - name: style
+        type: expression
+        label: "Style Object"
+        group: appearance
   - label: Textarea
     tagName: Textarea
     category: Forms
-    snippet: '<Textarea placeholder="What is this meeting about?" />'
+    snippet: "<Textarea placeholder=\"Anything we should know?\" />"
+    description: "Multi-line text input with vertical resize and focus ring."
     props:
       - name: placeholder
         type: string
@@ -116,55 +206,103 @@ components:
       - name: rows
         type: number
         label: Rows
-        group: appearance
+        group: layout
       - name: disabled
         type: boolean
         label: Disabled
+        defaultValue: "false"
         group: state
+      - name: onChange
+        type: expression
+        label: "On Change"
+        group: state
+      - name: children
+        type: expression
+        label: Content
+        group: content
+      - name: className
+        type: string
+        label: "Class Name"
+        group: appearance
+      - name: style
+        type: expression
+        label: "Style Object"
+        group: appearance
   - label: Avatar
     tagName: Avatar
     category: Display
-    snippet: '<Avatar name="Sam Smith" />'
+    snippet: "<Avatar name=\"Ada Lovelace\" size=\"md\" />"
+    description: "Circular gradient avatar showing the initials of a person's name in three sizes."
     props:
       - name: name
         type: string
         label: Name
+        defaultValue: "Ada Lovelace"
         group: content
       - name: size
         type: string
         label: Size
-        group: appearance
-        defaultValue: md
+        defaultValue: "md"
+        group: layout
         options:
-          - { label: Small, value: sm }
-          - { label: Medium, value: md }
-          - { label: Large, value: lg }
+          - label: Small
+            value: "sm"
+          - label: Medium
+            value: "md"
+          - label: Large
+            value: "lg"
+      - name: children
+        type: expression
+        label: Content
+        group: content
+      - name: className
+        type: string
+        label: "Class Name"
+        group: appearance
+      - name: style
+        type: expression
+        label: "Style Object"
+        group: appearance
   - label: Calendar
     tagName: Calendar
-    category: Forms
-    snippet: "<Calendar\n  selectedDate={new Date()}\n  onSelectDate={(d) => {}}\n/>"
+    category: Scheduling
+    snippet: "<Calendar onSelectDate={(d) => console.log(d)} />"
+    description: "Month-grid date picker with navigation arrows and disabled/available date predicates."
     props:
       - name: selectedDate
         type: expression
-        label: Selected Date
+        label: "Selected Date"
         group: state
       - name: onSelectDate
         type: expression
-        label: On Select Date
+        label: "On Select Date"
         group: state
       - name: isDateAvailable
         type: expression
-        label: Is Date Available
+        label: "Is Date Available"
         group: state
+      - name: children
+        type: expression
+        label: Content
+        group: content
+      - name: className
+        type: string
+        label: "Class Name"
+        group: appearance
+      - name: style
+        type: expression
+        label: "Style Object"
+        group: appearance
   - label: TimeSlotGrid
     tagName: TimeSlotGrid
-    category: Forms
-    snippet: "<TimeSlotGrid\n  date={new Date()}\n  slots={[]}\n  selected={null}\n  onPick={(s) => {}}\n/>"
+    category: Scheduling
+    snippet: "<TimeSlotGrid\n  date={new Date()}\n  slots={[new Date(Date.now() + 3600_000), new Date(Date.now() + 7200_000), new Date(Date.now() + 10800_000)]}\n  selected={null}\n  onPick={(s) => console.log(s)}\n/>"
+    description: "Grid of selectable time slots for a chosen date, with empty and no-availability states."
     props:
       - name: date
         type: expression
         label: Date
-        group: state
+        group: content
       - name: slots
         type: expression
         label: Slots
@@ -175,37 +313,93 @@ components:
         group: state
       - name: onPick
         type: expression
-        label: On Pick
+        label: "On Pick"
         group: state
+      - name: children
+        type: expression
+        label: Content
+        group: content
+      - name: className
+        type: string
+        label: "Class Name"
+        group: appearance
+      - name: style
+        type: expression
+        label: "Style Object"
+        group: appearance
   - label: EventTypeCard
     tagName: EventTypeCard
-    category: Display
-    snippet: "<EventTypeCard eventType={eventType} />"
+    category: Scheduling
+    snippet: "<EventTypeCard\n  eventType={{ id: '1', name: '30-min meeting', durationMinutes: 30, color: '#0069ff', description: 'A quick sync to align on next steps.', slug: 'quick-sync' }}\n  onEdit={(id) => console.log('edit', id)}\n  onDelete={(id) => console.log('delete', id)}\n  onCopyLink={(slug) => console.log('copy', slug)}\n  onOpen={(slug) => console.log('open', slug)}\n/>"
+    description: "Card summarising a bookable event type with duration, color accent, slug link, and edit/copy/delete actions."
     props:
       - name: eventType
         type: expression
-        label: Event Type
+        label: "Event Type"
         group: content
       - name: onEdit
         type: expression
-        label: On Edit
+        label: "On Edit"
         group: state
       - name: onDelete
         type: expression
-        label: On Delete
+        label: "On Delete"
         group: state
       - name: onCopyLink
         type: expression
-        label: On Copy Link
+        label: "On Copy Link"
         group: state
       - name: onOpen
         type: expression
-        label: On Open
+        label: "On Open"
         group: state
+      - name: children
+        type: expression
+        label: Content
+        group: content
+      - name: className
+        type: string
+        label: "Class Name"
+        group: appearance
+      - name: style
+        type: expression
+        label: "Style Object"
+        group: appearance
+  - label: EventTypeForm
+    tagName: EventTypeForm
+    category: Scheduling
+    snippet: "<EventTypeForm\n  onCancel={() => console.log('cancel')}\n  onSubmit={(values) => console.log('submit', values)}\n/>"
+    description: "Form to create or edit an event type, with duration pills, color swatches, slug, and description fields."
+    props:
+      - name: initial
+        type: expression
+        label: Initial
+        group: content
+      - name: onCancel
+        type: expression
+        label: "On Cancel"
+        group: state
+      - name: onSubmit
+        type: expression
+        label: "On Submit"
+        group: state
+      - name: children
+        type: expression
+        label: Content
+        group: content
+      - name: className
+        type: string
+        label: "Class Name"
+        group: appearance
+      - name: style
+        type: expression
+        label: "Style Object"
+        group: appearance
   - label: BookingConfirmation
     tagName: BookingConfirmation
-    category: Display
-    snippet: "<BookingConfirmation booking={booking} eventType={eventType} />"
+    category: Scheduling
+    snippet: "<BookingConfirmation\n  booking={{ id: 'b1', eventTypeId: 'e1', inviteeName: 'Ada Lovelace', inviteeEmail: 'ada@example.com', startAt: new Date(Date.now() + 86400000).toISOString(), durationMinutes: 30, notes: 'Looking forward to chatting!' }}\n  eventType={{ id: 'e1', name: '30-min meeting', durationMinutes: 30, color: '#0069ff', description: '', slug: 'quick-sync' }}\n/>"
+    description: "Success card shown after booking — green check, formatted date/time, invitee details, and optional notes."
     props:
       - name: booking
         type: expression
@@ -213,33 +407,30 @@ components:
         group: content
       - name: eventType
         type: expression
-        label: Event Type
+        label: "Event Type"
         group: content
-  - label: EventTypeForm
-    tagName: EventTypeForm
-    category: Forms
-    snippet: "<EventTypeForm\n  initial={null}\n  onCancel={() => {}}\n  onSubmit={(values) => {}}\n/>"
-    props:
-      - name: initial
+      - name: children
         type: expression
-        label: Initial Values
+        label: Content
         group: content
-      - name: onCancel
+      - name: className
+        type: string
+        label: "Class Name"
+        group: appearance
+      - name: style
         type: expression
-        label: On Cancel
-        group: state
-      - name: onSubmit
-        type: expression
-        label: On Submit
-        group: state
+        label: "Style Object"
+        group: appearance
   - label: Section
     tagName: Section
     category: Layout
-    snippet: "<Section title=\"Event types\" subtitle=\"Things people can book\">\n  Content\n</Section>"
+    snippet: "<Section title=\"Event types\" subtitle=\"Choose how invitees can book time with you.\">\n  <div>Section content</div>\n</Section>"
+    description: "Page-level section wrapper with title, optional subtitle, action slot, and a content area."
     props:
       - name: title
         type: string
         label: Title
+        defaultValue: "Section title"
         group: content
       - name: subtitle
         type: string
@@ -253,3 +444,11 @@ components:
         type: expression
         label: Content
         group: content
+      - name: className
+        type: string
+        label: "Class Name"
+        group: appearance
+      - name: style
+        type: expression
+        label: "Style Object"
+        group: appearance
