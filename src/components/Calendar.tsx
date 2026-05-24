@@ -122,7 +122,7 @@ const DaySelected = styled.button({
   borderRadius: '10px',
   cursor: 'pointer',
   fontSize: '14px',
-  color: '#ffffff',
+  color: colors.textOnPrimary,
   fontWeight: 600,
 });
 

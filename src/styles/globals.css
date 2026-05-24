@@ -1,3 +1,43 @@
+:root {
+  /* brand */
+  --color-primary: #0069ff;
+  --color-primary-hover: #0057d6;
+  --color-primary-tint: rgba(0, 105, 255, 0.08);
+  --color-primary-tint-subtle: rgba(0, 105, 255, 0.04);
+  --color-primary-tint-mid: rgba(0, 105, 255, 0.1);
+  --color-primary-tint-strong: rgba(0, 105, 255, 0.15);
+  --color-primary-gradient-end: #6ec1ff;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-success: #10b981;
+  --color-success-tint: rgba(16, 185, 129, 0.12);
+
+  /* text */
+  --color-text-primary: #0b1733;
+  --color-text-muted: #5b6478;
+  --color-text-faint: #9aa3b7;
+  --color-text-disabled: #c5cad8;
+  --color-text-on-primary: #ffffff;
+
+  /* surfaces */
+  --color-bg-page: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-surface: #f7f8fb;
+  --color-bg-surface-alt: #f5f7fb;
+  --color-bg-subtle: #f0f2f7;
+  --color-border: #e6e9f0;
+  --color-border-strong: #d6dbe6;
+  --color-border-hover: #c7cee0;
+  --color-ghost-hover: rgba(11, 23, 51, 0.06);
+  --color-shadow-card: rgba(11, 23, 51, 0.05);
+  --color-shadow-card-hover: rgba(11, 23, 51, 0.06);
+
+  /* fonts */
+  --font-body: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+}
+
 *,
 *::before,
 *::after {
@@ -13,10 +53,9 @@ body,
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, sans-serif;
-  background: #ffffff;
-  color: #0b1733;
+  font-family: var(--font-body);
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 15px;

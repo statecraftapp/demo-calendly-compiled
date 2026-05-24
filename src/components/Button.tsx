@@ -17,7 +17,7 @@ const PrimarySm = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: colors.primary, color: '#ffffff',
+  background: colors.primary, color: colors.textOnPrimary,
   '&:hover:not(:disabled)': { background: colors.primaryHover },
   padding: '6px 12px', fontSize: '13px',
 });
@@ -27,7 +27,7 @@ const PrimaryMd = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: colors.primary, color: '#ffffff',
+  background: colors.primary, color: colors.textOnPrimary,
   '&:hover:not(:disabled)': { background: colors.primaryHover },
   padding: '9px 18px', fontSize: '14px',
 });
@@ -37,7 +37,7 @@ const PrimaryLg = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: colors.primary, color: '#ffffff',
+  background: colors.primary, color: colors.textOnPrimary,
   '&:hover:not(:disabled)': { background: colors.primaryHover },
   padding: '12px 22px', fontSize: '16px',
 });
@@ -107,7 +107,7 @@ const DangerSm = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: colors.danger, color: '#ffffff',
+  background: colors.danger, color: colors.textOnPrimary,
   '&:hover:not(:disabled)': { background: colors.dangerHover },
   padding: '6px 12px', fontSize: '13px',
 });
@@ -117,7 +117,7 @@ const DangerMd = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: colors.danger, color: '#ffffff',
+  background: colors.danger, color: colors.textOnPrimary,
   '&:hover:not(:disabled)': { background: colors.dangerHover },
   padding: '9px 18px', fontSize: '14px',
 });
@@ -127,7 +127,7 @@ const DangerLg = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: colors.danger, color: '#ffffff',
+  background: colors.danger, color: colors.textOnPrimary,
   '&:hover:not(:disabled)': { background: colors.dangerHover },
   padding: '12px 22px', fontSize: '16px',
 });

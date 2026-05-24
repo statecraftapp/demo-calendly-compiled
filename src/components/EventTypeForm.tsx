@@ -58,7 +58,7 @@ const PillActive = styled.button({
   appearance: 'none',
   border: `1px solid ${colors.primary}`,
   background: colors.primary,
-  color: '#ffffff',
+  color: colors.textOnPrimary,
   padding: '6px 12px',
   borderRadius: '999px',
   cursor: 'pointer',
