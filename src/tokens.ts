@@ -1,0 +1,32 @@
+export const colors = {
+  primary: '#0069ff',
+  primaryHover: '#0057d6',
+  primaryTint: 'rgba(0, 105, 255, 0.08)',
+  primaryTintSubtle: 'rgba(0, 105, 255, 0.04)',
+  primaryTintMid: 'rgba(0, 105, 255, 0.1)',
+  primaryTintStrong: 'rgba(0, 105, 255, 0.15)',
+  primaryGradientEnd: '#6ec1ff',
+  danger: '#ef4444',
+  dangerHover: '#dc2626',
+  success: '#10b981',
+  successTint: 'rgba(16, 185, 129, 0.12)',
+  textPrimary: '#0b1733',
+  textMuted: '#5b6478',
+  textFaint: '#9aa3b7',
+  textDisabled: '#c5cad8',
+  bgCard: '#ffffff',
+  bgSurface: '#f7f8fb',
+  bgSurfaceAlt: '#f5f7fb',
+  bgSubtle: '#f0f2f7',
+  border: '#e6e9f0',
+  borderStrong: '#d6dbe6',
+  borderHover: '#c7cee0',
+  ghostHover: 'rgba(11, 23, 51, 0.06)',
+  shadowCard: 'rgba(11, 23, 51, 0.05)',
+  shadowCardHover: 'rgba(11, 23, 51, 0.06)',
+};
+
+export const font = {
+  body: '-apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif',
+  mono: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+};

@@ -9,6 +9,7 @@ import { Avatar } from "../components/Avatar";
 import { Input } from "../components/Input";
 import { Textarea } from "../components/Textarea";
 import { Button } from "../components/Button";
+import { colors } from "../tokens";
 import { useStore, createBooking, getState } from "../store/yamlStore";
 import type { EventType } from "../store/types";
 import { slotsForDate, hasAvailabilityOn } from "../utils/slots";
@@ -36,17 +37,17 @@ const HeroInfo = styled.div({
 const EventName = styled.h1({
   fontSize: "22px",
   fontWeight: 700,
-  color: "#0b1733",
+  color: colors.textPrimary,
 });
 
 const EventMeta = styled.p({
   fontSize: "14px",
-  color: "#5b6478",
+  color: colors.textMuted,
 });
 
 const Description = styled.p({
   fontSize: "14px",
-  color: "#5b6478",
+  color: colors.textMuted,
   lineHeight: 1.5,
   marginBottom: "24px",
 });
@@ -64,7 +65,7 @@ const FieldLabel = styled.label({
   gap: "6px",
   fontSize: "13px",
   fontWeight: 600,
-  color: "#0b1733",
+  color: colors.textPrimary,
 });
 
 const SubmitRow = styled.div({
@@ -74,11 +75,11 @@ const SubmitRow = styled.div({
 });
 
 const NotFound = styled.div({
-  background: "#f7f8fb",
+  background: colors.bgSurface,
   borderRadius: "14px",
   padding: "40px",
   textAlign: "center",
-  color: "#5b6478",
+  color: colors.textMuted,
 });
 
 export function Book() {

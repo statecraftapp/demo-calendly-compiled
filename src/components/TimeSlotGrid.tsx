@@ -1,5 +1,6 @@
 import { styled } from '@compiled/react';
 import { format } from 'date-fns';
+import { colors, font } from '../tokens';
 
 const Wrap = styled.div({
   display: 'flex',
@@ -19,12 +20,12 @@ const Header = styled.div({
 const HeaderTitle = styled.h3({
   fontSize: '15px',
   fontWeight: 700,
-  color: '#0b1733',
+  color: colors.textPrimary,
 });
 
 const HeaderHint = styled.span({
   fontSize: '12px',
-  color: '#9aa3b7',
+  color: colors.textFaint,
 });
 
 const Grid = styled.div({
@@ -35,40 +36,40 @@ const Grid = styled.div({
 
 const Slot = styled.button({
   appearance: 'none',
-  background: '#ffffff',
-  border: '1px solid #d6dbe6',
-  color: '#0069ff',
+  background: colors.bgCard,
+  border: `1px solid ${colors.borderStrong}`,
+  color: colors.primary,
   borderRadius: '10px',
   padding: '12px 10px',
-  fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+  fontFamily: font.mono,
   fontSize: '13px',
   fontWeight: 600,
   cursor: 'pointer',
   transition: 'border-color 120ms ease, background 120ms ease, transform 60ms ease',
-  '&:hover': { borderColor: '#0069ff', background: 'rgba(0, 105, 255, 0.04)' },
+  '&:hover': { borderColor: colors.primary, background: colors.primaryTintSubtle },
   '&:active': { transform: 'translateY(1px)' },
 });
 
 const SlotSelected = styled.button({
   appearance: 'none',
-  background: '#0069ff',
-  border: '1px solid #0069ff',
+  background: colors.primary,
+  border: `1px solid ${colors.primary}`,
   color: '#ffffff',
   borderRadius: '10px',
   padding: '12px 10px',
-  fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+  fontFamily: font.mono,
   fontSize: '13px',
   fontWeight: 600,
   cursor: 'pointer',
 });
 
 const Empty = styled.div({
-  background: '#f7f8fb',
-  border: '1px dashed #d6dbe6',
+  background: colors.bgSurface,
+  border: `1px dashed ${colors.borderStrong}`,
   borderRadius: '12px',
   padding: '32px 16px',
   textAlign: 'center',
-  color: '#5b6478',
+  color: colors.textMuted,
   fontSize: '14px',
 });
 

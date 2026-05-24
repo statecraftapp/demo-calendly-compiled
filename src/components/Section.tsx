@@ -1,5 +1,6 @@
 import { styled } from '@compiled/react';
 import type { ReactNode } from 'react';
+import { colors } from '../tokens';
 
 const Outer = styled.section({
   maxWidth: '960px',
@@ -25,12 +26,12 @@ const Title = styled.h1({
   fontSize: '24px',
   fontWeight: 700,
   letterSpacing: '-0.01em',
-  color: '#0b1733',
+  color: colors.textPrimary,
 });
 
 const Subtitle = styled.p({
   fontSize: '14px',
-  color: '#5b6478',
+  color: colors.textMuted,
 });
 
 const Actions = styled.div({

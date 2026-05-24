@@ -10,13 +10,14 @@ import { Button } from "../components/Button";
 import { useStore, cancelBooking, updateBooking } from "../store/yamlStore";
 import { useNavigate } from "react-router-dom";
 import { slotsForDate, hasAvailabilityOn } from "../utils/slots";
+import { colors } from "../tokens";
 
 const Empty = styled.div({
-  background: "#f7f8fb",
+  background: colors.bgSurface,
   borderRadius: "14px",
   padding: "40px",
   textAlign: "center",
-  color: "#5b6478",
+  color: colors.textMuted,
 });
 
 const Actions = styled.div({
