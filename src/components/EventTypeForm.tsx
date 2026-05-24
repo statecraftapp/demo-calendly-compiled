@@ -5,7 +5,7 @@ import type { EventType, EventTypeDuration } from '../store/types';
 import { Button } from './Button';
 import { Input } from './Input';
 import { Textarea } from './Textarea';
-import { colors } from '../tokens';
+import { colors, font } from '../tokens';
 
 const Sheet = styled.div({
   background: colors.bgCard,
@@ -28,7 +28,8 @@ const Header = styled.div({
 });
 
 const Title = styled.h2({
-  fontSize: '18px',
+  fontFamily: font.display,
+  fontSize: '22px',
   fontWeight: 700,
   color: colors.textPrimary,
 });

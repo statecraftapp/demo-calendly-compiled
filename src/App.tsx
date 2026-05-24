@@ -8,18 +8,18 @@ import { EventTypeFormRoute } from './routes/EventTypeFormRoute';
 import { resetToSeed } from './store/yamlStore';
 import { Avatar } from './components/Avatar';
 import { Calendar as CalendarIcon } from 'lucide-react';
-import { colors } from './tokens';
+import { colors, font } from './tokens';
 
 const Shell = styled.div({
   minHeight: '100vh',
-  background: colors.bgCard,
+  background: colors.bgPage,
   display: 'flex',
   flexDirection: 'column',
 });
 
 const Topbar = styled.header({
   borderBottom: `1px solid ${colors.border}`,
-  background: colors.bgCard,
+  background: colors.bgPage,
   position: 'sticky',
   top: 0,
   zIndex: 10,
@@ -38,9 +38,11 @@ const TopbarInner = styled.div({
 const Brand = styled.div({
   display: 'flex',
   alignItems: 'center',
-  gap: '10px',
+  gap: '12px',
+  fontFamily: font.display,
   fontWeight: 700,
-  fontSize: '16px',
+  fontSize: '20px',
+  letterSpacing: '-0.01em',
   color: colors.textPrimary,
 });
 
@@ -48,8 +50,8 @@ const BrandIcon = styled.span({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '32px',
-  height: '32px',
+  width: '34px',
+  height: '34px',
   background: colors.primary,
   color: colors.textOnPrimary,
   borderRadius: '8px',
@@ -75,22 +77,22 @@ const NavItemActive = styled.span({
   borderRadius: '999px',
   fontSize: '13.5px',
   fontWeight: 600,
-  color: colors.textPrimary,
-  background: colors.bgSubtle,
+  color: colors.primary,
+  background: colors.primaryTint,
   display: 'inline-block',
 });
 
 const ResetBtn = styled.button({
   appearance: 'none',
   border: `1px solid ${colors.borderStrong}`,
-  background: colors.bgCard,
+  background: 'transparent',
   borderRadius: '999px',
   padding: '6px 14px',
   fontSize: '12px',
   fontWeight: 600,
   color: colors.textMuted,
   cursor: 'pointer',
-  '&:hover': { background: colors.bgSurfaceAlt, color: colors.textPrimary },
+  '&:hover': { background: colors.ghostHover, color: colors.textPrimary },
 });
 
 const Right = styled.div({
@@ -108,7 +110,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     <Shell>
       <Topbar>
         <TopbarInner>
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <Brand>
               <BrandIcon>
                 <CalendarIcon size={18} />

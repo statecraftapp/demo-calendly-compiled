@@ -1,5 +1,5 @@
 import { styled } from '@compiled/react';
-import { Calendar as CalendarIcon, Clock, Mail, User, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { format } from 'date-fns';
 import type { Booking, EventType } from '../store/types';
 import { colors, font } from '../tokens';
@@ -8,8 +8,8 @@ const Card = styled.div({
   background: colors.bgCard,
   border: `1px solid ${colors.border}`,
   borderRadius: '20px',
-  padding: '40px 32px',
-  maxWidth: '520px',
+  padding: '48px 40px',
+  maxWidth: '560px',
   margin: '40px auto',
   textAlign: 'center',
   boxShadow: `0 8px 24px ${colors.shadowCard}`,
@@ -28,8 +28,10 @@ const Icon = styled.div({
 });
 
 const Title = styled.h1({
-  fontSize: '24px',
+  fontFamily: font.display,
+  fontSize: '32px',
   fontWeight: 700,
+  letterSpacing: '-0.015em',
   color: colors.textPrimary,
   marginBottom: '6px',
 });
@@ -37,41 +39,73 @@ const Title = styled.h1({
 const Subtitle = styled.p({
   fontSize: '14px',
   color: colors.textMuted,
-  marginBottom: '28px',
+  marginBottom: '32px',
 });
 
-const Details = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '12px',
-  textAlign: 'left',
+const WhenBlock = styled.div({
   background: colors.bgSurface,
   borderRadius: '14px',
-  padding: '20px',
+  padding: '28px 24px',
+  textAlign: 'center',
 });
 
-const Row = styled.div({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '12px',
-  fontSize: '14px',
+const WhenDate = styled.div({
+  fontFamily: font.display,
+  fontSize: '28px',
+  fontWeight: 700,
+  lineHeight: 1.15,
   color: colors.textPrimary,
+  letterSpacing: '-0.01em',
 });
 
-const IconWrap = styled.span({
+const WhenTime = styled.div({
+  fontFamily: font.display,
+  fontSize: '20px',
+  fontWeight: 600,
+  color: colors.primary,
+  marginTop: '6px',
+});
+
+const WhenMeta = styled.div({
+  fontSize: '12px',
   color: colors.textMuted,
-  display: 'inline-flex',
+  textTransform: 'uppercase',
+  letterSpacing: '0.08em',
+  fontWeight: 600,
+  marginTop: '12px',
 });
 
-const TimeMono = styled.span({
-  fontFamily: font.mono,
+const WhoBlock = styled.div({
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+  gap: '20px',
+  marginTop: '20px',
+  paddingTop: '20px',
+  borderTop: `1px solid ${colors.border}`,
+  textAlign: 'left',
+});
+
+const WhoLabel = styled.div({
+  fontSize: '11px',
+  textTransform: 'uppercase',
+  letterSpacing: '0.1em',
+  fontWeight: 600,
+  color: colors.textFaint,
+  marginBottom: '4px',
+});
+
+const WhoValue = styled.div({
+  fontSize: '13px',
+  color: colors.textPrimary,
+  fontWeight: 500,
+  overflowWrap: 'anywhere',
 });
 
 const Notes = styled.p({
-  marginTop: '16px',
+  marginTop: '20px',
   fontSize: '13.5px',
   color: colors.textMuted,
-  lineHeight: 1.5,
+  lineHeight: 1.6,
   fontStyle: 'italic',
 });
 
@@ -89,34 +123,23 @@ export function BookingConfirmation({ booking, eventType }: BookingConfirmationP
       </Icon>
       <Title>You're booked</Title>
       <Subtitle>A calendar invite has been sent to {booking.inviteeEmail}.</Subtitle>
-      <Details>
-        <Row>
-          <IconWrap>
-            <CalendarIcon size={16} />
-          </IconWrap>
-          <span>{format(start, 'EEEE, MMMM d, yyyy')}</span>
-        </Row>
-        <Row>
-          <IconWrap>
-            <Clock size={16} />
-          </IconWrap>
-          <TimeMono>
-            {format(start, 'h:mm a')} — {eventType.name} ({booking.durationMinutes} min)
-          </TimeMono>
-        </Row>
-        <Row>
-          <IconWrap>
-            <User size={16} />
-          </IconWrap>
-          <span>{booking.inviteeName}</span>
-        </Row>
-        <Row>
-          <IconWrap>
-            <Mail size={16} />
-          </IconWrap>
-          <span>{booking.inviteeEmail}</span>
-        </Row>
-      </Details>
+      <WhenBlock>
+        <WhenDate>{format(start, 'EEEE, MMMM d')}</WhenDate>
+        <WhenTime>{format(start, 'h:mm a')}</WhenTime>
+        <WhenMeta>
+          {eventType.name} · {booking.durationMinutes} min
+        </WhenMeta>
+        <WhoBlock>
+          <div>
+            <WhoLabel>Guest</WhoLabel>
+            <WhoValue>{booking.inviteeName}</WhoValue>
+          </div>
+          <div>
+            <WhoLabel>Email</WhoLabel>
+            <WhoValue>{booking.inviteeEmail}</WhoValue>
+          </div>
+        </WhoBlock>
+      </WhenBlock>
       {booking.notes ? <Notes>"{booking.notes}"</Notes> : null}
     </Card>
   );
