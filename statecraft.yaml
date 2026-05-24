@@ -18,46 +18,41 @@ stylesheets: []
 globalCss: ""
 
 tokens:
+  # Keys here map 1:1 to CSS custom properties in src/styles/globals.css.
+  # Statecraft injects matching :root vars into each canvas iframe, so the
+  # editor's component previews reflect any rebrand applied to globals.css.
   colors:
-    brand: "#0069ff"
-    brandHover: "#0057d6"
-    brandSoft: "rgba(0, 105, 255, 0.08)"
-    text: "#0b1733"
+    primary: "#0069ff"
+    primaryHover: "#0057d6"
+    primaryTint: "rgba(0, 105, 255, 0.08)"
+    primaryTintSubtle: "rgba(0, 105, 255, 0.04)"
+    primaryTintMid: "rgba(0, 105, 255, 0.1)"
+    primaryTintStrong: "rgba(0, 105, 255, 0.15)"
+    primaryGradientEnd: "#6ec1ff"
+    danger: "#ef4444"
+    dangerHover: "#dc2626"
+    success: "#10b981"
+    successTint: "rgba(16, 185, 129, 0.12)"
+    textPrimary: "#0b1733"
     textMuted: "#5b6478"
-    textSubtle: "#9aa3b7"
-    bg: "#ffffff"
-    bgSoft: "#f7f8fb"
-    bgHover: "#f0f2f7"
+    textFaint: "#9aa3b7"
+    textDisabled: "#c5cad8"
+    textOnPrimary: "#ffffff"
+    bgPage: "#ffffff"
+    bgCard: "#ffffff"
+    bgSurface: "#f7f8fb"
+    bgSurfaceAlt: "#f5f7fb"
+    bgSubtle: "#f0f2f7"
     border: "#e6e9f0"
     borderStrong: "#d6dbe6"
-    success: "#10b981"
-    warning: "#f59e0b"
-    danger: "#ef4444"
-    info: "#06b6d4"
-    purple: "#a855f7"
-  spacing:
-    xs: 4px
-    sm: 8px
-    md: 12px
-    lg: 16px
-    xl: 24px
-    2xl: 32px
-  radii:
-    sm: 6px
-    md: 10px
-    lg: 16px
-    xl: 20px
-    pill: 999px
-  fontSizes:
-    xs: 11px
-    sm: 13px
-    md: 14px
-    lg: 15px
-    xl: 17px
-    2xl: 24px
-  shadows:
-    card: "0 4px 18px rgba(11, 23, 51, 0.06)"
-    elevated: "0 8px 24px rgba(11, 23, 51, 0.05)"
+    borderHover: "#c7cee0"
+    ghostHover: "rgba(11, 23, 51, 0.06)"
+    shadowCard: "rgba(11, 23, 51, 0.05)"
+    shadowCardHover: "rgba(11, 23, 51, 0.06)"
+  fontFamilies:
+    body: "-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif"
+    display: "-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif"
+    mono: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace"
 
 fallbackProps:
   - name: children

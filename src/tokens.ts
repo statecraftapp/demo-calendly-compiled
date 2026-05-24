@@ -1,39 +1,41 @@
 // All design tokens resolve from CSS custom properties defined in
-// src/styles/globals.css. Editing the :root block there cascades to
-// every component automatically — no rebuild of token references needed.
+// src/styles/globals.css :root, AND from the `tokens:` block in
+// statecraft.yaml (the Statecraft editor injects matching :root vars
+// into each state-frame iframe). Variable names are camelCase to
+// match Statecraft's `colors.foo` → `--color-foo` mapping convention.
 
 export const colors = {
   primary: 'var(--color-primary)',
-  primaryHover: 'var(--color-primary-hover)',
-  primaryTint: 'var(--color-primary-tint)',
-  primaryTintSubtle: 'var(--color-primary-tint-subtle)',
-  primaryTintMid: 'var(--color-primary-tint-mid)',
-  primaryTintStrong: 'var(--color-primary-tint-strong)',
-  primaryGradientEnd: 'var(--color-primary-gradient-end)',
+  primaryHover: 'var(--color-primaryHover)',
+  primaryTint: 'var(--color-primaryTint)',
+  primaryTintSubtle: 'var(--color-primaryTintSubtle)',
+  primaryTintMid: 'var(--color-primaryTintMid)',
+  primaryTintStrong: 'var(--color-primaryTintStrong)',
+  primaryGradientEnd: 'var(--color-primaryGradientEnd)',
   danger: 'var(--color-danger)',
-  dangerHover: 'var(--color-danger-hover)',
+  dangerHover: 'var(--color-dangerHover)',
   success: 'var(--color-success)',
-  successTint: 'var(--color-success-tint)',
-  textPrimary: 'var(--color-text-primary)',
-  textMuted: 'var(--color-text-muted)',
-  textFaint: 'var(--color-text-faint)',
-  textDisabled: 'var(--color-text-disabled)',
-  textOnPrimary: 'var(--color-text-on-primary)',
-  bgPage: 'var(--color-bg-page)',
-  bgCard: 'var(--color-bg-card)',
-  bgSurface: 'var(--color-bg-surface)',
-  bgSurfaceAlt: 'var(--color-bg-surface-alt)',
-  bgSubtle: 'var(--color-bg-subtle)',
+  successTint: 'var(--color-successTint)',
+  textPrimary: 'var(--color-textPrimary)',
+  textMuted: 'var(--color-textMuted)',
+  textFaint: 'var(--color-textFaint)',
+  textDisabled: 'var(--color-textDisabled)',
+  textOnPrimary: 'var(--color-textOnPrimary)',
+  bgPage: 'var(--color-bgPage)',
+  bgCard: 'var(--color-bgCard)',
+  bgSurface: 'var(--color-bgSurface)',
+  bgSurfaceAlt: 'var(--color-bgSurfaceAlt)',
+  bgSubtle: 'var(--color-bgSubtle)',
   border: 'var(--color-border)',
-  borderStrong: 'var(--color-border-strong)',
-  borderHover: 'var(--color-border-hover)',
-  ghostHover: 'var(--color-ghost-hover)',
-  shadowCard: 'var(--color-shadow-card)',
-  shadowCardHover: 'var(--color-shadow-card-hover)',
+  borderStrong: 'var(--color-borderStrong)',
+  borderHover: 'var(--color-borderHover)',
+  ghostHover: 'var(--color-ghostHover)',
+  shadowCard: 'var(--color-shadowCard)',
+  shadowCardHover: 'var(--color-shadowCardHover)',
 };
 
 export const font = {
-  body: 'var(--font-body)',
-  display: 'var(--font-display)',
-  mono: 'var(--font-mono)',
+  body: 'var(--font-family-body)',
+  display: 'var(--font-family-display)',
+  mono: 'var(--font-family-mono)',
 };
