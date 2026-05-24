@@ -9,7 +9,7 @@ import { Avatar } from "../components/Avatar";
 import { Input } from "../components/Input";
 import { Textarea } from "../components/Textarea";
 import { Button } from "../components/Button";
-import { colors } from "../tokens";
+import { colors, font } from "../tokens";
 import { useStore, createBooking, getState } from "../store/yamlStore";
 import type { EventType } from "../store/types";
 import { slotsForDate, hasAvailabilityOn } from "../utils/slots";
@@ -35,8 +35,10 @@ const HeroInfo = styled.div({
 });
 
 const EventName = styled.h1({
-  fontSize: "22px",
+  fontFamily: font.display,
+  fontSize: "26px",
   fontWeight: 700,
+  letterSpacing: "-0.01em",
   color: colors.textPrimary,
 });
 

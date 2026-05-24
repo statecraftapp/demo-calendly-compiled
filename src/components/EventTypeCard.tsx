@@ -30,7 +30,8 @@ const AccentBar = styled.div({
 });
 
 const Title = styled.h3({
-  fontSize: '17px',
+  fontFamily: font.display,
+  fontSize: '20px',
   fontWeight: 700,
   color: colors.textPrimary,
   letterSpacing: '-0.005em',

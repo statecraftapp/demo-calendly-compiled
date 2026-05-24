@@ -1,40 +1,40 @@
 :root {
-  /* brand */
-  --color-primary: #0069ff;
-  --color-primaryHover: #0057d6;
-  --color-primaryTint: rgba(0, 105, 255, 0.08);
-  --color-primaryTintSubtle: rgba(0, 105, 255, 0.04);
-  --color-primaryTintMid: rgba(0, 105, 255, 0.1);
-  --color-primaryTintStrong: rgba(0, 105, 255, 0.15);
-  --color-primaryGradientEnd: #6ec1ff;
-  --color-danger: #ef4444;
-  --color-dangerHover: #dc2626;
-  --color-success: #10b981;
-  --color-successTint: rgba(16, 185, 129, 0.12);
+  /* brand — warm editorial */
+  --color-primary: #c14a2a;
+  --color-primaryHover: #a13a1f;
+  --color-primaryTint: rgba(193, 74, 42, 0.08);
+  --color-primaryTintSubtle: rgba(193, 74, 42, 0.06);
+  --color-primaryTintMid: rgba(193, 74, 42, 0.12);
+  --color-primaryTintStrong: rgba(193, 74, 42, 0.18);
+  --color-primaryGradientEnd: #e8a285;
+  --color-danger: #b8392a;
+  --color-dangerHover: #9a2c20;
+  --color-success: #3d7a4a;
+  --color-successTint: rgba(61, 122, 74, 0.14);
 
   /* text */
-  --color-textPrimary: #0b1733;
-  --color-textMuted: #5b6478;
-  --color-textFaint: #9aa3b7;
-  --color-textDisabled: #c5cad8;
+  --color-textPrimary: #1f1812;
+  --color-textMuted: #6b5d52;
+  --color-textFaint: #a89c8c;
+  --color-textDisabled: #c9bca6;
   --color-textOnPrimary: #ffffff;
 
   /* surfaces */
-  --color-bgPage: #ffffff;
-  --color-bgCard: #ffffff;
-  --color-bgSurface: #f7f8fb;
-  --color-bgSurfaceAlt: #f5f7fb;
-  --color-bgSubtle: #f0f2f7;
-  --color-border: #e6e9f0;
-  --color-borderStrong: #d6dbe6;
-  --color-borderHover: #c7cee0;
-  --color-ghostHover: rgba(11, 23, 51, 0.06);
-  --color-shadowCard: rgba(11, 23, 51, 0.05);
-  --color-shadowCardHover: rgba(11, 23, 51, 0.06);
+  --color-bgPage: #f5ede0;
+  --color-bgCard: #fffaf2;
+  --color-bgSurface: #f0e6d4;
+  --color-bgSurfaceAlt: #ebe3d4;
+  --color-bgSubtle: #e7dcc6;
+  --color-border: #e0d6c4;
+  --color-borderStrong: #c9bca6;
+  --color-borderHover: #b8a98f;
+  --color-ghostHover: rgba(31, 24, 18, 0.06);
+  --color-shadowCard: rgba(31, 24, 18, 0.06);
+  --color-shadowCardHover: rgba(31, 24, 18, 0.08);
 
   /* fonts */
-  --font-family-body: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
-  --font-family-display: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+  --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 }
 
