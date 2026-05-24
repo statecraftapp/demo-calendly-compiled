@@ -54,7 +54,7 @@ const SlotSelected = styled.button({
   appearance: 'none',
   background: colors.primary,
   border: `1px solid ${colors.primary}`,
-  color: '#ffffff',
+  color: colors.textOnPrimary,
   borderRadius: '10px',
   padding: '12px 10px',
   fontFamily: font.mono,

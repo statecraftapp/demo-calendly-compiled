@@ -51,7 +51,7 @@ const BrandIcon = styled.span({
   width: '32px',
   height: '32px',
   background: colors.primary,
-  color: '#ffffff',
+  color: colors.textOnPrimary,
   borderRadius: '8px',
 });
 
