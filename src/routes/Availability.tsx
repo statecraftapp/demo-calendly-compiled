@@ -5,6 +5,7 @@ import { useStore, setAvailability } from '../store/yamlStore';
 import type { AvailabilitySlot } from '../store/types';
 import type React from 'react';
 import { useMemo, useState } from 'react';
+import { colors, font } from '../tokens';
 
 const WEEKDAYS: { weekday: AvailabilitySlot['weekday']; label: string }[] = [
   { weekday: 0, label: 'Sunday' },
@@ -17,8 +18,8 @@ const WEEKDAYS: { weekday: AvailabilitySlot['weekday']; label: string }[] = [
 ];
 
 const Table = styled.div({
-  background: '#ffffff',
-  border: '1px solid #e6e9f0',
+  background: colors.bgCard,
+  border: `1px solid ${colors.border}`,
   borderRadius: '16px',
   overflow: 'hidden',
 });
@@ -29,14 +30,14 @@ const Row = styled.div({
   alignItems: 'center',
   gap: '16px',
   padding: '14px 20px',
-  borderBottom: '1px solid #f0f2f7',
+  borderBottom: `1px solid ${colors.bgSubtle}`,
   '&:last-child': { borderBottom: 0 },
 });
 
 const DayLabel = styled.div({
   fontSize: '14px',
   fontWeight: 600,
-  color: '#0b1733',
+  color: colors.textPrimary,
 });
 
 const TimeField = styled.div({
@@ -49,25 +50,25 @@ const TimeLabel = styled.span({
   fontSize: '11px',
   textTransform: 'uppercase',
   letterSpacing: '0.06em',
-  color: '#9aa3b7',
+  color: colors.textFaint,
   fontWeight: 600,
 });
 
 const TimeInput = styled.input({
   appearance: 'none',
-  border: '1px solid #d6dbe6',
+  border: `1px solid ${colors.borderStrong}`,
   borderRadius: '10px',
   padding: '8px 10px',
-  fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+  fontFamily: font.mono,
   fontSize: '14px',
-  color: '#0b1733',
+  color: colors.textPrimary,
   outline: 'none',
-  background: '#ffffff',
+  background: colors.bgCard,
   '&:focus': {
-    borderColor: '#0069ff',
-    boxShadow: '0 0 0 3px rgba(0, 105, 255, 0.15)',
+    borderColor: colors.primary,
+    boxShadow: `0 0 0 3px ${colors.primaryTintStrong}`,
   },
-  '&:disabled': { background: '#f7f8fb', color: '#9aa3b7' },
+  '&:disabled': { background: colors.bgSurface, color: colors.textFaint },
 });
 
 const ToggleLabel = styled.label({
@@ -75,7 +76,7 @@ const ToggleLabel = styled.label({
   alignItems: 'center',
   gap: '6px',
   fontSize: '12px',
-  color: '#5b6478',
+  color: colors.textMuted,
   cursor: 'pointer',
   justifySelf: 'end',
 });

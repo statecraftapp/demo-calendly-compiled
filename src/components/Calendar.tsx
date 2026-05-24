@@ -15,10 +15,11 @@ import {
 } from 'date-fns';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useMemo, useState } from 'react';
+import { colors } from '../tokens';
 
 const Root = styled.div({
-  background: '#ffffff',
-  border: '1px solid #e6e9f0',
+  background: colors.bgCard,
+  border: `1px solid ${colors.border}`,
   borderRadius: '16px',
   padding: '20px',
   width: '320px',
@@ -35,7 +36,7 @@ const Header = styled.div({
 const MonthLabel = styled.span({
   fontSize: '15px',
   fontWeight: 600,
-  color: '#0b1733',
+  color: colors.textPrimary,
 });
 
 const NavBtn = styled.button({
@@ -45,9 +46,9 @@ const NavBtn = styled.button({
   padding: '6px',
   borderRadius: '8px',
   cursor: 'pointer',
-  color: '#5b6478',
+  color: colors.textMuted,
   display: 'inline-flex',
-  '&:hover': { background: '#f0f2f7', color: '#0b1733' },
+  '&:hover': { background: colors.bgSubtle, color: colors.textPrimary },
   '&:disabled': { opacity: 0.35, cursor: 'not-allowed' },
 });
 
@@ -62,7 +63,7 @@ const WeekLabel = styled.div({
   fontSize: '11px',
   textTransform: 'uppercase',
   letterSpacing: '0.06em',
-  color: '#9aa3b7',
+  color: colors.textFaint,
   textAlign: 'center',
   padding: '6px 0',
   fontWeight: 600,
@@ -82,10 +83,10 @@ const DayDefault = styled.button({
   borderRadius: '10px',
   cursor: 'pointer',
   fontSize: '14px',
-  color: '#0b1733',
+  color: colors.textPrimary,
   fontWeight: 500,
   transition: 'background 120ms ease, color 120ms ease',
-  '&:hover': { background: '#f0f2f7' },
+  '&:hover': { background: colors.bgSubtle },
 });
 
 const DayMuted = styled.button({
@@ -96,9 +97,9 @@ const DayMuted = styled.button({
   borderRadius: '10px',
   cursor: 'pointer',
   fontSize: '14px',
-  color: '#c5cad8',
+  color: colors.textDisabled,
   fontWeight: 500,
-  '&:hover': { background: '#f7f8fb' },
+  '&:hover': { background: colors.bgSurface },
 });
 
 const DayDisabled = styled.button({
@@ -109,14 +110,14 @@ const DayDisabled = styled.button({
   borderRadius: '10px',
   cursor: 'not-allowed',
   fontSize: '14px',
-  color: '#c5cad8',
+  color: colors.textDisabled,
   fontWeight: 500,
 });
 
 const DaySelected = styled.button({
   appearance: 'none',
   border: 0,
-  background: '#0069ff',
+  background: colors.primary,
   padding: '10px 0',
   borderRadius: '10px',
   cursor: 'pointer',
@@ -128,14 +129,14 @@ const DaySelected = styled.button({
 const DayToday = styled.button({
   appearance: 'none',
   border: 0,
-  background: 'rgba(0, 105, 255, 0.1)',
+  background: colors.primaryTintMid,
   padding: '10px 0',
   borderRadius: '10px',
   cursor: 'pointer',
   fontSize: '14px',
-  color: '#0069ff',
+  color: colors.primary,
   fontWeight: 600,
-  '&:hover': { background: 'rgba(0, 105, 255, 0.15)' },
+  '&:hover': { background: colors.primaryTintStrong },
 });
 
 const WEEKDAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

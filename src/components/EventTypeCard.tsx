@@ -1,10 +1,11 @@
 import { styled } from '@compiled/react';
 import type { EventType } from '../store/types';
 import { Clock, Copy, Pencil, Trash2 } from 'lucide-react';
+import { colors, font } from '../tokens';
 
 const Card = styled.article({
-  background: '#ffffff',
-  border: '1px solid #e6e9f0',
+  background: colors.bgCard,
+  border: `1px solid ${colors.border}`,
   borderRadius: '16px',
   padding: '24px',
   display: 'flex',
@@ -13,8 +14,8 @@ const Card = styled.article({
   transition: 'border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease',
   position: 'relative',
   '&:hover': {
-    borderColor: '#c7cee0',
-    boxShadow: '0 4px 18px rgba(11, 23, 51, 0.06)',
+    borderColor: colors.borderHover,
+    boxShadow: `0 4px 18px ${colors.shadowCardHover}`,
     transform: 'translateY(-1px)',
   },
 });
@@ -31,13 +32,13 @@ const AccentBar = styled.div({
 const Title = styled.h3({
   fontSize: '17px',
   fontWeight: 700,
-  color: '#0b1733',
+  color: colors.textPrimary,
   letterSpacing: '-0.005em',
 });
 
 const Description = styled.p({
   fontSize: '13.5px',
-  color: '#5b6478',
+  color: colors.textMuted,
   lineHeight: 1.5,
 });
 
@@ -46,23 +47,23 @@ const Meta = styled.div({
   alignItems: 'center',
   gap: '8px',
   fontSize: '13px',
-  color: '#5b6478',
+  color: colors.textMuted,
 });
 
 const Footer = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  borderTop: '1px solid #f0f2f7',
+  borderTop: `1px solid ${colors.bgSubtle}`,
   paddingTop: '14px',
   marginTop: 'auto',
 });
 
 const LinkLabel = styled.span({
-  fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+  fontFamily: font.mono,
   fontSize: '12px',
-  color: '#0069ff',
-  background: 'rgba(0, 105, 255, 0.08)',
+  color: colors.primary,
+  background: colors.primaryTint,
   padding: '3px 8px',
   borderRadius: '6px',
 });
@@ -79,12 +80,12 @@ const IconBtn = styled.button({
   padding: '6px',
   borderRadius: '8px',
   cursor: 'pointer',
-  color: '#5b6478',
+  color: colors.textMuted,
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
   transition: 'background 120ms ease, color 120ms ease',
-  '&:hover': { background: '#f0f2f7', color: '#0b1733' },
+  '&:hover': { background: colors.bgSubtle, color: colors.textPrimary },
 });
 
 export interface EventTypeCardProps {

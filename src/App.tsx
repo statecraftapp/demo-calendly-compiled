@@ -8,17 +8,18 @@ import { EventTypeFormRoute } from './routes/EventTypeFormRoute';
 import { resetToSeed } from './store/yamlStore';
 import { Avatar } from './components/Avatar';
 import { Calendar as CalendarIcon } from 'lucide-react';
+import { colors } from './tokens';
 
 const Shell = styled.div({
   minHeight: '100vh',
-  background: '#ffffff',
+  background: colors.bgCard,
   display: 'flex',
   flexDirection: 'column',
 });
 
 const Topbar = styled.header({
-  borderBottom: '1px solid #e6e9f0',
-  background: '#ffffff',
+  borderBottom: `1px solid ${colors.border}`,
+  background: colors.bgCard,
   position: 'sticky',
   top: 0,
   zIndex: 10,
@@ -40,7 +41,7 @@ const Brand = styled.div({
   gap: '10px',
   fontWeight: 700,
   fontSize: '16px',
-  color: '#0b1733',
+  color: colors.textPrimary,
 });
 
 const BrandIcon = styled.span({
@@ -49,7 +50,7 @@ const BrandIcon = styled.span({
   justifyContent: 'center',
   width: '32px',
   height: '32px',
-  background: '#0069ff',
+  background: colors.primary,
   color: '#ffffff',
   borderRadius: '8px',
 });
@@ -65,7 +66,7 @@ const NavItemDefault = styled.span({
   borderRadius: '999px',
   fontSize: '13.5px',
   fontWeight: 600,
-  color: '#5b6478',
+  color: colors.textMuted,
   display: 'inline-block',
 });
 
@@ -74,22 +75,22 @@ const NavItemActive = styled.span({
   borderRadius: '999px',
   fontSize: '13.5px',
   fontWeight: 600,
-  color: '#0b1733',
-  background: '#f0f2f7',
+  color: colors.textPrimary,
+  background: colors.bgSubtle,
   display: 'inline-block',
 });
 
 const ResetBtn = styled.button({
   appearance: 'none',
-  border: '1px solid #d6dbe6',
-  background: '#ffffff',
+  border: `1px solid ${colors.borderStrong}`,
+  background: colors.bgCard,
   borderRadius: '999px',
   padding: '6px 14px',
   fontSize: '12px',
   fontWeight: 600,
-  color: '#5b6478',
+  color: colors.textMuted,
   cursor: 'pointer',
-  '&:hover': { background: '#f5f7fb', color: '#0b1733' },
+  '&:hover': { background: colors.bgSurfaceAlt, color: colors.textPrimary },
 });
 
 const Right = styled.div({

@@ -8,6 +8,7 @@ import {
   updateEventType,
   useStore,
 } from '../store/yamlStore';
+import { colors } from '../tokens';
 
 const Page = styled.div({
   maxWidth: '720px',
@@ -23,24 +24,24 @@ const Breadcrumb = styled.div({
   alignItems: 'center',
   gap: '6px',
   fontSize: '13px',
-  color: '#5b6478',
+  color: colors.textMuted,
 });
 
 const Crumb = styled(Link)({
   display: 'inline-flex',
   alignItems: 'center',
   gap: '4px',
-  color: '#5b6478',
+  color: colors.textMuted,
   textDecoration: 'none',
-  '&:hover': { color: '#0b1733' },
+  '&:hover': { color: colors.textPrimary },
 });
 
 const Empty = styled.div({
-  background: '#f7f8fb',
+  background: colors.bgSurface,
   borderRadius: '14px',
   padding: '40px',
   textAlign: 'center',
-  color: '#5b6478',
+  color: colors.textMuted,
 });
 
 export function EventTypeFormRoute() {

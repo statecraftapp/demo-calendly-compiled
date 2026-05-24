@@ -4,6 +4,7 @@ import { Plus } from 'lucide-react';
 import { Section } from '../components/Section';
 import { EventTypeCard } from '../components/EventTypeCard';
 import { Button } from '../components/Button';
+import { colors } from '../tokens';
 import {
   useStore,
   deleteEventType,
@@ -16,11 +17,11 @@ const Grid = styled.div({
 });
 
 const Empty = styled.div({
-  background: '#f7f8fb',
+  background: colors.bgSurface,
   borderRadius: '14px',
   padding: '40px',
   textAlign: 'center',
-  color: '#5b6478',
+  color: colors.textMuted,
 });
 
 export function Dashboard() {

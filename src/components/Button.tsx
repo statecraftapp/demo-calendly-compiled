@@ -1,5 +1,6 @@
 import { styled } from '@compiled/react';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { colors } from '../tokens';
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'danger';
 type Size = 'sm' | 'md' | 'lg';
@@ -16,8 +17,8 @@ const PrimarySm = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: '#0069ff', color: '#ffffff',
-  '&:hover:not(:disabled)': { background: '#0057d6' },
+  background: colors.primary, color: '#ffffff',
+  '&:hover:not(:disabled)': { background: colors.primaryHover },
   padding: '6px 12px', fontSize: '13px',
 });
 const PrimaryMd = styled.button({
@@ -26,8 +27,8 @@ const PrimaryMd = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: '#0069ff', color: '#ffffff',
-  '&:hover:not(:disabled)': { background: '#0057d6' },
+  background: colors.primary, color: '#ffffff',
+  '&:hover:not(:disabled)': { background: colors.primaryHover },
   padding: '9px 18px', fontSize: '14px',
 });
 const PrimaryLg = styled.button({
@@ -36,8 +37,8 @@ const PrimaryLg = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: '#0069ff', color: '#ffffff',
-  '&:hover:not(:disabled)': { background: '#0057d6' },
+  background: colors.primary, color: '#ffffff',
+  '&:hover:not(:disabled)': { background: colors.primaryHover },
   padding: '12px 22px', fontSize: '16px',
 });
 const SecondarySm = styled.button({
@@ -46,8 +47,8 @@ const SecondarySm = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: '#ffffff', color: '#0b1733', boxShadow: 'inset 0 0 0 1px #d6dbe6',
-  '&:hover:not(:disabled)': { background: '#f5f7fb' },
+  background: colors.bgCard, color: colors.textPrimary, boxShadow: `inset 0 0 0 1px ${colors.borderStrong}`,
+  '&:hover:not(:disabled)': { background: colors.bgSurfaceAlt },
   padding: '6px 12px', fontSize: '13px',
 });
 const SecondaryMd = styled.button({
@@ -56,8 +57,8 @@ const SecondaryMd = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: '#ffffff', color: '#0b1733', boxShadow: 'inset 0 0 0 1px #d6dbe6',
-  '&:hover:not(:disabled)': { background: '#f5f7fb' },
+  background: colors.bgCard, color: colors.textPrimary, boxShadow: `inset 0 0 0 1px ${colors.borderStrong}`,
+  '&:hover:not(:disabled)': { background: colors.bgSurfaceAlt },
   padding: '9px 18px', fontSize: '14px',
 });
 const SecondaryLg = styled.button({
@@ -66,8 +67,8 @@ const SecondaryLg = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: '#ffffff', color: '#0b1733', boxShadow: 'inset 0 0 0 1px #d6dbe6',
-  '&:hover:not(:disabled)': { background: '#f5f7fb' },
+  background: colors.bgCard, color: colors.textPrimary, boxShadow: `inset 0 0 0 1px ${colors.borderStrong}`,
+  '&:hover:not(:disabled)': { background: colors.bgSurfaceAlt },
   padding: '12px 22px', fontSize: '16px',
 });
 const GhostSm = styled.button({
@@ -76,8 +77,8 @@ const GhostSm = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: 'transparent', color: '#0b1733',
-  '&:hover:not(:disabled)': { background: 'rgba(11, 23, 51, 0.06)' },
+  background: 'transparent', color: colors.textPrimary,
+  '&:hover:not(:disabled)': { background: colors.ghostHover },
   padding: '6px 12px', fontSize: '13px',
 });
 const GhostMd = styled.button({
@@ -86,8 +87,8 @@ const GhostMd = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: 'transparent', color: '#0b1733',
-  '&:hover:not(:disabled)': { background: 'rgba(11, 23, 51, 0.06)' },
+  background: 'transparent', color: colors.textPrimary,
+  '&:hover:not(:disabled)': { background: colors.ghostHover },
   padding: '9px 18px', fontSize: '14px',
 });
 const GhostLg = styled.button({
@@ -96,8 +97,8 @@ const GhostLg = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: 'transparent', color: '#0b1733',
-  '&:hover:not(:disabled)': { background: 'rgba(11, 23, 51, 0.06)' },
+  background: 'transparent', color: colors.textPrimary,
+  '&:hover:not(:disabled)': { background: colors.ghostHover },
   padding: '12px 22px', fontSize: '16px',
 });
 const DangerSm = styled.button({
@@ -106,8 +107,8 @@ const DangerSm = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: '#ef4444', color: '#ffffff',
-  '&:hover:not(:disabled)': { background: '#dc2626' },
+  background: colors.danger, color: '#ffffff',
+  '&:hover:not(:disabled)': { background: colors.dangerHover },
   padding: '6px 12px', fontSize: '13px',
 });
 const DangerMd = styled.button({
@@ -116,8 +117,8 @@ const DangerMd = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: '#ef4444', color: '#ffffff',
-  '&:hover:not(:disabled)': { background: '#dc2626' },
+  background: colors.danger, color: '#ffffff',
+  '&:hover:not(:disabled)': { background: colors.dangerHover },
   padding: '9px 18px', fontSize: '14px',
 });
 const DangerLg = styled.button({
@@ -126,8 +127,8 @@ const DangerLg = styled.button({
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', whiteSpace: 'nowrap',
   '&:disabled': { opacity: 0.45, cursor: 'not-allowed' },
   '&:active:not(:disabled)': { transform: 'translateY(1px)' },
-  background: '#ef4444', color: '#ffffff',
-  '&:hover:not(:disabled)': { background: '#dc2626' },
+  background: colors.danger, color: '#ffffff',
+  '&:hover:not(:disabled)': { background: colors.dangerHover },
   padding: '12px 22px', fontSize: '16px',
 });
 

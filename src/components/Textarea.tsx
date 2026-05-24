@@ -1,5 +1,6 @@
 import { styled } from '@compiled/react';
 import type { TextareaHTMLAttributes } from 'react';
+import { colors } from '../tokens';
 
 const StyledTextarea = styled.textarea({
   display: 'block',
@@ -8,19 +9,19 @@ const StyledTextarea = styled.textarea({
   fontSize: '14px',
   lineHeight: 1.5,
   fontFamily: 'inherit',
-  color: '#0b1733',
-  background: '#ffffff',
-  border: '1px solid #d6dbe6',
+  color: colors.textPrimary,
+  background: colors.bgCard,
+  border: `1px solid ${colors.borderStrong}`,
   borderRadius: '10px',
   transition: 'border-color 120ms ease, box-shadow 120ms ease',
   outline: 'none',
   resize: 'vertical',
   minHeight: '80px',
   '&:focus': {
-    borderColor: '#0069ff',
-    boxShadow: '0 0 0 3px rgba(0, 105, 255, 0.15)',
+    borderColor: colors.primary,
+    boxShadow: `0 0 0 3px ${colors.primaryTintStrong}`,
   },
-  '&::placeholder': { color: '#9aa3b7' },
+  '&::placeholder': { color: colors.textFaint },
 });
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {}

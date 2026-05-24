@@ -2,16 +2,17 @@ import { styled } from '@compiled/react';
 import { Calendar as CalendarIcon, Clock, Mail, User, CheckCircle2 } from 'lucide-react';
 import { format } from 'date-fns';
 import type { Booking, EventType } from '../store/types';
+import { colors, font } from '../tokens';
 
 const Card = styled.div({
-  background: '#ffffff',
-  border: '1px solid #e6e9f0',
+  background: colors.bgCard,
+  border: `1px solid ${colors.border}`,
   borderRadius: '20px',
   padding: '40px 32px',
   maxWidth: '520px',
   margin: '40px auto',
   textAlign: 'center',
-  boxShadow: '0 8px 24px rgba(11, 23, 51, 0.05)',
+  boxShadow: `0 8px 24px ${colors.shadowCard}`,
 });
 
 const Icon = styled.div({
@@ -21,21 +22,21 @@ const Icon = styled.div({
   width: '56px',
   height: '56px',
   borderRadius: '999px',
-  background: 'rgba(16, 185, 129, 0.12)',
-  color: '#10b981',
+  background: colors.successTint,
+  color: colors.success,
   marginBottom: '16px',
 });
 
 const Title = styled.h1({
   fontSize: '24px',
   fontWeight: 700,
-  color: '#0b1733',
+  color: colors.textPrimary,
   marginBottom: '6px',
 });
 
 const Subtitle = styled.p({
   fontSize: '14px',
-  color: '#5b6478',
+  color: colors.textMuted,
   marginBottom: '28px',
 });
 
@@ -44,7 +45,7 @@ const Details = styled.div({
   flexDirection: 'column',
   gap: '12px',
   textAlign: 'left',
-  background: '#f7f8fb',
+  background: colors.bgSurface,
   borderRadius: '14px',
   padding: '20px',
 });
@@ -54,22 +55,22 @@ const Row = styled.div({
   alignItems: 'center',
   gap: '12px',
   fontSize: '14px',
-  color: '#0b1733',
+  color: colors.textPrimary,
 });
 
 const IconWrap = styled.span({
-  color: '#5b6478',
+  color: colors.textMuted,
   display: 'inline-flex',
 });
 
 const TimeMono = styled.span({
-  fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+  fontFamily: font.mono,
 });
 
 const Notes = styled.p({
   marginTop: '16px',
   fontSize: '13.5px',
-  color: '#5b6478',
+  color: colors.textMuted,
   lineHeight: 1.5,
   fontStyle: 'italic',
 });

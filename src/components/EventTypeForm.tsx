@@ -5,9 +5,10 @@ import type { EventType, EventTypeDuration } from '../store/types';
 import { Button } from './Button';
 import { Input } from './Input';
 import { Textarea } from './Textarea';
+import { colors } from '../tokens';
 
 const Sheet = styled.div({
-  background: '#ffffff',
+  background: colors.bgCard,
   borderRadius: '16px',
   width: '100%',
   maxWidth: '560px',
@@ -16,7 +17,7 @@ const Sheet = styled.div({
   display: 'flex',
   flexDirection: 'column',
   gap: '20px',
-  border: '1px solid #e6e9f0',
+  border: `1px solid ${colors.border}`,
 });
 
 const Header = styled.div({
@@ -29,7 +30,7 @@ const Header = styled.div({
 const Title = styled.h2({
   fontSize: '18px',
   fontWeight: 700,
-  color: '#0b1733',
+  color: colors.textPrimary,
 });
 
 const Field = styled.label({
@@ -38,7 +39,7 @@ const Field = styled.label({
   gap: '6px',
   fontSize: '13px',
   fontWeight: 600,
-  color: '#0b1733',
+  color: colors.textPrimary,
 });
 
 const Row = styled.div({
@@ -55,8 +56,8 @@ const Pills = styled.div({
 
 const PillActive = styled.button({
   appearance: 'none',
-  border: '1px solid #0069ff',
-  background: '#0069ff',
+  border: `1px solid ${colors.primary}`,
+  background: colors.primary,
   color: '#ffffff',
   padding: '6px 12px',
   borderRadius: '999px',
@@ -67,15 +68,15 @@ const PillActive = styled.button({
 
 const PillInactive = styled.button({
   appearance: 'none',
-  border: '1px solid #d6dbe6',
-  background: '#ffffff',
-  color: '#0b1733',
+  border: `1px solid ${colors.borderStrong}`,
+  background: colors.bgCard,
+  color: colors.textPrimary,
   padding: '6px 12px',
   borderRadius: '999px',
   cursor: 'pointer',
   fontSize: '12px',
   fontWeight: 600,
-  '&:hover': { background: '#f5f7fb' },
+  '&:hover': { background: colors.bgSurfaceAlt },
 });
 
 const Footer = styled.div({
@@ -89,7 +90,7 @@ const ColorSwatch = styled.div({
   width: '36px',
   height: '36px',
   borderRadius: '10px',
-  border: '1px solid #d6dbe6',
+  border: `1px solid ${colors.borderStrong}`,
   cursor: 'pointer',
 });
 
@@ -179,7 +180,7 @@ export function EventTypeForm({ initial, onCancel, onSubmit }: EventTypeFormProp
                   key={c}
                   style={{
                     background: c,
-                    outline: c === color ? '2px solid #0b1733' : 'none',
+                    outline: c === color ? `2px solid ${colors.textPrimary}` : 'none',
                     outlineOffset: c === color ? '2px' : '0',
                   }}
                   onClick={() => setColor(c)}

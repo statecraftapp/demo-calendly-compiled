@@ -1,11 +1,14 @@
 import { styled } from '@compiled/react';
+import { colors } from '../tokens';
+
+const GRADIENT = `linear-gradient(135deg, ${colors.primary} 0%, ${colors.primaryGradientEnd} 100%)`;
 
 const Sm = styled.span({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: '999px',
-  background: 'linear-gradient(135deg, #0069ff 0%, #6ec1ff 100%)',
+  background: GRADIENT,
   color: '#ffffff',
   fontWeight: 600,
   letterSpacing: '0.02em',
@@ -20,7 +23,7 @@ const Md = styled.span({
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: '999px',
-  background: 'linear-gradient(135deg, #0069ff 0%, #6ec1ff 100%)',
+  background: GRADIENT,
   color: '#ffffff',
   fontWeight: 600,
   letterSpacing: '0.02em',
@@ -35,7 +38,7 @@ const Lg = styled.span({
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: '999px',
-  background: 'linear-gradient(135deg, #0069ff 0%, #6ec1ff 100%)',
+  background: GRADIENT,
   color: '#ffffff',
   fontWeight: 600,
   letterSpacing: '0.02em',
