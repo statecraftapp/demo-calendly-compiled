@@ -1,125 +1,85 @@
-import { styled } from '@compiled/react';
-import { useMemo, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import {
-  addDays,
-  addMinutes,
-  isBefore,
-  setHours,
-  setMinutes,
-  setSeconds,
-  setMilliseconds,
-} from 'date-fns';
-import { Calendar } from '../components/Calendar';
-import { TimeSlotGrid } from '../components/TimeSlotGrid';
-import { Section } from '../components/Section';
-import { Avatar } from '../components/Avatar';
-import { Input } from '../components/Input';
-import { Textarea } from '../components/Textarea';
-import { Button } from '../components/Button';
-import { useStore, createBooking, getState } from '../store/yamlStore';
-import type { AvailabilitySlot, EventType } from '../store/types';
+import { styled } from "@compiled/react";
+import { useMemo, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { addDays, isBefore } from "date-fns";
+import { Calendar } from "../components/Calendar";
+import { TimeSlotGrid } from "../components/TimeSlotGrid";
+import { Section } from "../components/Section";
+import { Avatar } from "../components/Avatar";
+import { Input } from "../components/Input";
+import { Textarea } from "../components/Textarea";
+import { Button } from "../components/Button";
+import { useStore, createBooking, getState } from "../store/yamlStore";
+import type { EventType } from "../store/types";
+import { slotsForDate, hasAvailabilityOn } from "../utils/slots";
 
 const Layout = styled.div({
-  display: 'flex',
-  gap: '24px',
-  flexWrap: 'wrap',
-  alignItems: 'flex-start',
+  display: "flex",
+  gap: "24px",
+  flexWrap: "wrap",
+  alignItems: "flex-start",
 });
 
 const Hero = styled.div({
-  display: 'flex',
-  gap: '16px',
-  alignItems: 'center',
-  marginBottom: '20px',
+  display: "flex",
+  gap: "16px",
+  alignItems: "center",
+  marginBottom: "20px",
 });
 
 const HeroInfo = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '4px',
+  display: "flex",
+  flexDirection: "column",
+  gap: "4px",
 });
 
 const EventName = styled.h1({
-  fontSize: '22px',
+  fontSize: "22px",
   fontWeight: 700,
-  color: '#0b1733',
+  color: "#0b1733",
 });
 
 const EventMeta = styled.p({
-  fontSize: '14px',
-  color: '#5b6478',
+  fontSize: "14px",
+  color: "#5b6478",
 });
 
 const Description = styled.p({
-  fontSize: '14px',
-  color: '#5b6478',
+  fontSize: "14px",
+  color: "#5b6478",
   lineHeight: 1.5,
-  marginBottom: '24px',
+  marginBottom: "24px",
 });
 
 const Form = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '14px',
-  marginTop: '20px',
+  display: "flex",
+  flexDirection: "column",
+  gap: "14px",
+  marginTop: "20px",
 });
 
 const FieldLabel = styled.label({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '6px',
-  fontSize: '13px',
+  display: "flex",
+  flexDirection: "column",
+  gap: "6px",
+  fontSize: "13px",
   fontWeight: 600,
-  color: '#0b1733',
+  color: "#0b1733",
 });
 
 const SubmitRow = styled.div({
-  display: 'flex',
-  justifyContent: 'flex-end',
-  gap: '8px',
+  display: "flex",
+  justifyContent: "flex-end",
+  gap: "8px",
 });
 
 const NotFound = styled.div({
-  background: '#f7f8fb',
-  borderRadius: '14px',
-  padding: '40px',
-  textAlign: 'center',
-  color: '#5b6478',
+  background: "#f7f8fb",
+  borderRadius: "14px",
+  padding: "40px",
+  textAlign: "center",
+  color: "#5b6478",
 });
-
-function slotsForDate(
-  date: Date,
-  availability: AvailabilitySlot[],
-  durationMin: number,
-): Date[] {
-  const weekday = date.getDay() as AvailabilitySlot['weekday'];
-  const windows = availability.filter((a) => a.weekday === weekday);
-  const out: Date[] = [];
-  const step = durationMin;
-  const now = new Date();
-  for (const w of windows) {
-    const startBase = setMilliseconds(setSeconds(setMinutes(setHours(date, 0), 0), 0), 0);
-    const winStart = addMinutes(startBase, w.startMin);
-    const winEnd = addMinutes(startBase, w.endMin);
-    let cur = winStart;
-    while (addMinutes(cur, durationMin) <= winEnd) {
-      if (isBefore(now, cur)) {
-        out.push(cur);
-      }
-      cur = addMinutes(cur, step);
-    }
-  }
-  return out;
-}
-
-function hasAvailabilityOn(
-  date: Date,
-  availability: AvailabilitySlot[],
-  durationMin: number,
-): boolean {
-  return slotsForDate(date, availability, durationMin).length > 0;
-}
 
 export function Book() {
   const { slug } = useParams();
@@ -135,13 +95,16 @@ export function Book() {
 
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<Date | null>(null);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [notes, setNotes] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [notes, setNotes] = useState("");
 
   if (!eventType) {
     return (
-      <Section title="Event not found" subtitle="That booking link doesn't exist.">
+      <Section
+        title="Event not found"
+        subtitle="That booking link doesn't exist."
+      >
         <NotFound>Check the URL and try again.</NotFound>
       </Section>
     );
@@ -149,7 +112,9 @@ export function Book() {
 
   const dur = eventType.durationMinutes;
   const takenStartsSet = new Set(
-    bookings.filter((b) => b.eventTypeId === eventType.id).map((b) => b.startAt),
+    bookings
+      .filter((b) => b.eventTypeId === eventType.id)
+      .map((b) => b.startAt),
   );
   const slots = selectedDate
     ? slotsForDate(selectedDate, availability, dur).filter(
@@ -173,7 +138,10 @@ export function Book() {
   const isReady = !!selectedSlot && name.trim() && /.+@.+\..+/.test(email);
 
   return (
-    <Section title="Book a meeting" subtitle="Pick a date, then choose a time that works.">
+    <Section
+      title="Book a meeting"
+      subtitle="Pick a date, then choose a time that works."
+    >
       <Hero>
         <Avatar name="Demo Owner" size="lg" />
         <HeroInfo>
@@ -198,7 +166,7 @@ export function Book() {
             return hasAvailabilityOn(d, availability, dur);
           }}
         />
-        <div style={{ flex: 1, minWidth: '280px' }}>
+        <div style={{ flex: 1, minWidth: "280px" }}>
           <TimeSlotGrid
             date={selectedDate}
             slots={slots}
@@ -237,9 +205,9 @@ export function Book() {
                   variant="ghost"
                   onClick={() => {
                     setSelectedSlot(null);
-                    setName('');
-                    setEmail('');
-                    setNotes('');
+                    setName("");
+                    setEmail("");
+                    setNotes("");
                   }}
                 >
                   Reset

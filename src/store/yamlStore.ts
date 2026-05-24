@@ -1,9 +1,9 @@
-import yaml from 'js-yaml';
-import seedRaw from '../../data/seed.yaml?raw';
-import { useSyncExternalStore } from 'react';
-import type { State } from './types';
+import yaml from "js-yaml";
+import seedRaw from "../../data/seed.yaml?raw";
+import { useSyncExternalStore } from "react";
+import type { State } from "./types";
 
-const STORAGE_KEY = 'demo-calendly-compiled:state';
+const STORAGE_KEY = "demo-calendly-compiled:state";
 const seed = yaml.load(seedRaw) as State;
 
 function load(): State {
@@ -53,14 +53,20 @@ function uid(prefix: string): string {
   return `${prefix}-${Math.random().toString(36).slice(2, 9)}`;
 }
 
-import type { EventType, AvailabilitySlot, Booking } from './types';
+import type { EventType, AvailabilitySlot, Booking } from "./types";
 
-export function createEventType(input: Omit<EventType, 'id' | 'slug'> & { slug?: string }): EventType {
-  const slug = input.slug?.trim()
-    || input.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
-    || uid('event');
+export function createEventType(
+  input: Omit<EventType, "id" | "slug"> & { slug?: string },
+): EventType {
+  const slug =
+    input.slug?.trim() ||
+    input.name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "") ||
+    uid("event");
   const et: EventType = {
-    id: uid('et'),
+    id: uid("et"),
     name: input.name,
     durationMinutes: input.durationMinutes,
     color: input.color,
@@ -73,7 +79,10 @@ export function createEventType(input: Omit<EventType, 'id' | 'slug'> & { slug?:
   return et;
 }
 
-export function updateEventType(id: string, patch: Partial<Omit<EventType, 'id'>>) {
+export function updateEventType(
+  id: string,
+  patch: Partial<Omit<EventType, "id">>,
+) {
   mutate((s) => {
     const i = s.eventTypes.findIndex((e) => e.id === id);
     if (i >= 0) {
@@ -95,12 +104,21 @@ export function setAvailability(slots: AvailabilitySlot[]) {
   });
 }
 
-export function createBooking(input: Omit<Booking, 'id'>): Booking {
-  const bk: Booking = { ...input, id: uid('bk') };
+export function createBooking(input: Omit<Booking, "id">): Booking {
+  const bk: Booking = { ...input, id: uid("bk") };
   mutate((s) => {
     s.bookings.push(bk);
   });
   return bk;
+}
+
+export function updateBooking(id: string, patch: Partial<Omit<Booking, "id">>) {
+  mutate((s) => {
+    const i = s.bookings.findIndex((b) => b.id === id);
+    if (i >= 0) {
+      s.bookings[i] = { ...s.bookings[i], ...patch };
+    }
+  });
 }
 
 export function cancelBooking(id: string) {

@@ -1,3 +1,5 @@
+slug: demo-calendly-compiled
+
 source:
   live: true
 
@@ -74,7 +76,7 @@ components:
   - label: Input
     tagName: Input
     category: Forms
-    snippet: "<Input placeholder=\"you@example.com\" />"
+    snippet: '<Input placeholder="you@example.com" />'
     props:
       - name: placeholder
         type: string
@@ -101,7 +103,7 @@ components:
   - label: Textarea
     tagName: Textarea
     category: Forms
-    snippet: "<Textarea placeholder=\"What is this meeting about?\" />"
+    snippet: '<Textarea placeholder="What is this meeting about?" />'
     props:
       - name: placeholder
         type: string
@@ -122,7 +124,7 @@ components:
   - label: Avatar
     tagName: Avatar
     category: Display
-    snippet: "<Avatar name=\"Sam Smith\" />"
+    snippet: '<Avatar name="Sam Smith" />'
     props:
       - name: name
         type: string
