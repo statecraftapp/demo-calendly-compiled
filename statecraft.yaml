@@ -1,5 +1,16 @@
 slug: demo-calendly-compiled
 
+build:
+ framework: react
+ entry: src/components/index.ts
+
+install:
+ installCwd: .
+ installCommand: pnpm install --prefer-offline --frozen-lockfile
+ packageManager: pnpm
+
+cssEngine: compiled
+
 source:
   live: true
 
