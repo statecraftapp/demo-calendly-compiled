@@ -76,6 +76,18 @@ const SubmitRow = styled.div({
   gap: "8px",
 });
 
+const GuestList = styled.div({
+  display: "flex",
+  flexDirection: "column",
+  gap: "8px",
+});
+
+const GuestRow = styled.div({
+  display: "flex",
+  gap: "8px",
+  alignItems: "center",
+});
+
 const NotFound = styled.div({
   background: colors.bgSurface,
   borderRadius: "14px",
@@ -101,6 +113,7 @@ export function Book() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
+  const [guests, setGuests] = useState<string[]>([]);
 
   if (!eventType) {
     return (
@@ -134,6 +147,7 @@ export function Book() {
       startAt: selectedSlot.toISOString(),
       durationMinutes: dur,
       notes: notes.trim(),
+      guests: guests.map((g) => g.trim()).filter(Boolean),
     });
     navigate(`/booking/${bk.id}`);
   }
@@ -196,6 +210,45 @@ export function Book() {
                 />
               </FieldLabel>
               <FieldLabel>
+                Guests (optional)
+                <GuestList>
+                  {guests.map((g, i) => (
+                    <GuestRow key={i}>
+                      <div style={{ flex: 1 }}>
+                        <Input
+                          type="email"
+                          placeholder="guest@example.com"
+                          value={g}
+                          onChange={(e) =>
+                            setGuests((prev) =>
+                              prev.map((v, j) => (j === i ? e.target.value : v)),
+                            )
+                          }
+                        />
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() =>
+                          setGuests((prev) => prev.filter((_, j) => j !== i))
+                        }
+                      >
+                        Remove
+                      </Button>
+                    </GuestRow>
+                  ))}
+                  <div>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => setGuests((prev) => [...prev, ""])}
+                    >
+                      + Add guest
+                    </Button>
+                  </div>
+                </GuestList>
+              </FieldLabel>
+              <FieldLabel>
                 Notes (optional)
                 <Textarea
                   placeholder="Anything we should know?"
@@ -211,6 +264,7 @@ export function Book() {
                     setName("");
                     setEmail("");
                     setNotes("");
+                    setGuests([]);
                   }}
                 >
                   Reset

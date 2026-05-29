@@ -101,6 +101,13 @@ const WhoValue = styled.div({
   overflowWrap: 'anywhere',
 });
 
+const GuestBlock = styled.div({
+  marginTop: '16px',
+  paddingTop: '16px',
+  borderTop: `1px solid ${colors.border}`,
+  textAlign: 'left',
+});
+
 const Notes = styled.p({
   marginTop: '20px',
   fontSize: '13.5px',
@@ -139,6 +146,12 @@ export function BookingConfirmation({ booking, eventType }: BookingConfirmationP
             <WhoValue>{booking.inviteeEmail}</WhoValue>
           </div>
         </WhoBlock>
+        {booking.guests?.length ? (
+          <GuestBlock>
+            <WhoLabel>Guests</WhoLabel>
+            <WhoValue>{booking.guests.join(', ')}</WhoValue>
+          </GuestBlock>
+        ) : null}
       </WhenBlock>
       {booking.notes ? <Notes>"{booking.notes}"</Notes> : null}
     </Card>

@@ -15,7 +15,10 @@ source:
   live: true
 
 stylesheets: []
-globalCss: ""
+# Mirror the app's global reset (src/styles/globals.css) into the DS bundle so
+# canvas renders match the app. Without box-sizing: border-box, components like
+# Input/Textarea (width:100% + padding + border) overflow their containers.
+globalCss: "*,*::before,*::after{box-sizing:border-box}"
 
 tokens:
   # Keys here map 1:1 to CSS custom properties in src/styles/globals.css.

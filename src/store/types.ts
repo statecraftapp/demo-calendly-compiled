@@ -26,6 +26,8 @@ export interface Booking {
   startAt: string;
   durationMinutes: number;
   notes: string;
+  /** Additional invitee emails CC'd on the invite */
+  guests: string[];
 }
 
 export interface State {
