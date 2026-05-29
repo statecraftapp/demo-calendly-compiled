@@ -48,6 +48,7 @@ bookings:
     startAt: "2026-05-19T15:00:00.000Z"
     durationMinutes: 15
     notes: "Quick question about the new pricing page."
+    guests: []
   - id: bk-2
     eventTypeId: et-thirty
     inviteeName: Jordan Lee
@@ -55,6 +56,7 @@ bookings:
     startAt: "2026-05-20T17:30:00.000Z"
     durationMinutes: 30
     notes: ""
+    guests: []
   - id: bk-3
     eventTypeId: et-hour
     inviteeName: Priya Raman
@@ -62,6 +64,9 @@ bookings:
     startAt: "2026-05-21T19:00:00.000Z"
     durationMinutes: 60
     notes: "Want to walk through the dashboard wireframes together."
+    guests:
+      - alex@stripe.com
+      - dana@stripe.com
   - id: bk-4
     eventTypeId: et-office
     inviteeName: Sam O'Neill
@@ -69,3 +74,4 @@ bookings:
     startAt: "2026-05-22T16:00:00.000Z"
     durationMinutes: 30
     notes: ""
+    guests: []
