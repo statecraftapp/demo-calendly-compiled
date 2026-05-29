@@ -8,101 +8,129 @@ const Card = styled.div({
   background: colors.bgCard,
   border: `1px solid ${colors.border}`,
   borderRadius: '20px',
-  padding: '48px 40px',
+  padding: '44px',
   maxWidth: '560px',
   margin: '40px auto',
-  textAlign: 'center',
+  textAlign: 'left',
   boxShadow: `0 8px 24px ${colors.shadowCard}`,
 });
 
+const Header = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '16px',
+  marginBottom: '20px',
+});
+
 const Icon = styled.div({
+  flexShrink: 0,
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '56px',
-  height: '56px',
+  width: '44px',
+  height: '44px',
   borderRadius: '999px',
   background: colors.successTint,
   color: colors.success,
-  marginBottom: '16px',
+});
+
+const Eyebrow = styled.div({
+  fontSize: '11px',
+  fontWeight: 600,
+  textTransform: 'uppercase',
+  letterSpacing: '0.14em',
+  color: colors.primary,
+  marginBottom: '4px',
 });
 
 const Title = styled.h1({
   fontFamily: font.display,
-  fontSize: '32px',
-  fontWeight: 700,
-  letterSpacing: '-0.015em',
+  fontSize: '34px',
+  fontWeight: 600,
+  lineHeight: 1.05,
+  letterSpacing: '-0.01em',
   color: colors.textPrimary,
-  marginBottom: '6px',
 });
 
 const Subtitle = styled.p({
   fontSize: '14px',
   color: colors.textMuted,
-  marginBottom: '32px',
+  marginBottom: '28px',
+  lineHeight: 1.5,
 });
 
-const WhenBlock = styled.div({
-  background: colors.bgSurface,
-  borderRadius: '14px',
-  padding: '28px 24px',
-  textAlign: 'center',
+const HeroBand = styled.div({
+  background: colors.primaryTint,
+  borderLeft: `3px solid ${colors.primary}`,
+  borderRadius: '4px 14px 14px 4px',
+  padding: '22px 26px',
 });
 
 const WhenDate = styled.div({
   fontFamily: font.display,
   fontSize: '28px',
-  fontWeight: 700,
-  lineHeight: 1.15,
+  fontWeight: 600,
+  lineHeight: 1.1,
   color: colors.textPrimary,
   letterSpacing: '-0.01em',
 });
 
-const WhenTime = styled.div({
+const WhenRow = styled.div({
+  display: 'flex',
+  alignItems: 'baseline',
+  gap: '12px',
+  marginTop: '8px',
+});
+
+const WhenTime = styled.span({
   fontFamily: font.display,
   fontSize: '20px',
   fontWeight: 600,
   color: colors.primary,
-  marginTop: '6px',
 });
 
-const WhenMeta = styled.div({
+const WhenMeta = styled.span({
   fontSize: '12px',
   color: colors.textMuted,
   textTransform: 'uppercase',
   letterSpacing: '0.08em',
   fontWeight: 600,
-  marginTop: '12px',
 });
 
-const WhoBlock = styled.div({
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
-  gap: '20px',
-  marginTop: '20px',
-  paddingTop: '20px',
+const DetailList = styled.div({
+  marginTop: '24px',
+});
+
+const DetailRow = styled.div({
+  display: 'flex',
+  alignItems: 'baseline',
+  justifyContent: 'space-between',
+  gap: '24px',
+  padding: '14px 0',
   borderTop: `1px solid ${colors.border}`,
-  textAlign: 'left',
 });
 
-const WhoLabel = styled.div({
+const DetailLabel = styled.span({
+  flexShrink: 0,
   fontSize: '11px',
   textTransform: 'uppercase',
   letterSpacing: '0.1em',
   fontWeight: 600,
   color: colors.textFaint,
-  marginBottom: '4px',
 });
 
-const WhoValue = styled.div({
-  fontSize: '13px',
+const DetailValue = styled.span({
+  fontSize: '14px',
   color: colors.textPrimary,
   fontWeight: 500,
+  textAlign: 'right',
   overflowWrap: 'anywhere',
 });
 
 const Notes = styled.p({
-  marginTop: '20px',
+  marginTop: '24px',
+  paddingLeft: '16px',
+  borderLeft: `2px solid ${colors.borderStrong}`,
   fontSize: '13.5px',
   color: colors.textMuted,
   lineHeight: 1.6,
@@ -118,28 +146,35 @@ export function BookingConfirmation({ booking, eventType }: BookingConfirmationP
   const start = new Date(booking.startAt);
   return (
     <Card>
-      <Icon>
-        <CheckCircle2 size={28} />
-      </Icon>
-      <Title>You're booked</Title>
+      <Header>
+        <Icon>
+          <CheckCircle2 size={24} />
+        </Icon>
+        <div>
+          <Eyebrow>Confirmed</Eyebrow>
+          <Title>You're booked</Title>
+        </div>
+      </Header>
       <Subtitle>A calendar invite has been sent to {booking.inviteeEmail}.</Subtitle>
-      <WhenBlock>
+      <HeroBand>
         <WhenDate>{format(start, 'EEEE, MMMM d')}</WhenDate>
-        <WhenTime>{format(start, 'h:mm a')}</WhenTime>
-        <WhenMeta>
-          {eventType.name} · {booking.durationMinutes} min
-        </WhenMeta>
-        <WhoBlock>
-          <div>
-            <WhoLabel>Guest</WhoLabel>
-            <WhoValue>{booking.inviteeName}</WhoValue>
-          </div>
-          <div>
-            <WhoLabel>Email</WhoLabel>
-            <WhoValue>{booking.inviteeEmail}</WhoValue>
-          </div>
-        </WhoBlock>
-      </WhenBlock>
+        <WhenRow>
+          <WhenTime>{format(start, 'h:mm a')}</WhenTime>
+          <WhenMeta>
+            {eventType.name} · {booking.durationMinutes} min
+          </WhenMeta>
+        </WhenRow>
+      </HeroBand>
+      <DetailList>
+        <DetailRow>
+          <DetailLabel>Guest</DetailLabel>
+          <DetailValue>{booking.inviteeName}</DetailValue>
+        </DetailRow>
+        <DetailRow>
+          <DetailLabel>Email</DetailLabel>
+          <DetailValue>{booking.inviteeEmail}</DetailValue>
+        </DetailRow>
+      </DetailList>
       {booking.notes ? <Notes>"{booking.notes}"</Notes> : null}
     </Card>
   );

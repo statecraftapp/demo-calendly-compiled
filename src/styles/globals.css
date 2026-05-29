@@ -1,40 +1,40 @@
 :root {
-  /* brand — warm editorial */
-  --color-primary: #c14a2a;
-  --color-primaryHover: #a13a1f;
-  --color-primaryTint: rgba(193, 74, 42, 0.08);
-  --color-primaryTintSubtle: rgba(193, 74, 42, 0.06);
-  --color-primaryTintMid: rgba(193, 74, 42, 0.12);
-  --color-primaryTintStrong: rgba(193, 74, 42, 0.18);
-  --color-primaryGradientEnd: #e8a285;
-  --color-danger: #b8392a;
-  --color-dangerHover: #9a2c20;
-  --color-success: #3d7a4a;
-  --color-successTint: rgba(61, 122, 74, 0.14);
+  /* brand — fresh botanical */
+  --color-primary: #1f6e4a;
+  --color-primaryHover: #185839;
+  --color-primaryTint: rgba(31, 110, 74, 0.08);
+  --color-primaryTintSubtle: rgba(31, 110, 74, 0.05);
+  --color-primaryTintMid: rgba(31, 110, 74, 0.12);
+  --color-primaryTintStrong: rgba(31, 110, 74, 0.18);
+  --color-primaryGradientEnd: #6fbf8e;
+  --color-danger: #c1402f;
+  --color-dangerHover: #a3331f;
+  --color-success: #2f8f5b;
+  --color-successTint: rgba(47, 143, 91, 0.14);
 
   /* text */
-  --color-textPrimary: #1f1812;
-  --color-textMuted: #6b5d52;
-  --color-textFaint: #a89c8c;
-  --color-textDisabled: #c9bca6;
+  --color-textPrimary: #14241c;
+  --color-textMuted: #5a6b60;
+  --color-textFaint: #92a097;
+  --color-textDisabled: #c2ccc4;
   --color-textOnPrimary: #ffffff;
 
   /* surfaces */
-  --color-bgPage: #f5ede0;
-  --color-bgCard: #fffaf2;
-  --color-bgSurface: #f0e6d4;
-  --color-bgSurfaceAlt: #ebe3d4;
-  --color-bgSubtle: #e7dcc6;
-  --color-border: #e0d6c4;
-  --color-borderStrong: #c9bca6;
-  --color-borderHover: #b8a98f;
-  --color-ghostHover: rgba(31, 24, 18, 0.06);
-  --color-shadowCard: rgba(31, 24, 18, 0.06);
-  --color-shadowCardHover: rgba(31, 24, 18, 0.08);
+  --color-bgPage: #f4f6f1;
+  --color-bgCard: #ffffff;
+  --color-bgSurface: #eef2ea;
+  --color-bgSurfaceAlt: #e9efe4;
+  --color-bgSubtle: #e3ebdd;
+  --color-border: #dde4d6;
+  --color-borderStrong: #ccd6c3;
+  --color-borderHover: #b8c5ad;
+  --color-ghostHover: rgba(20, 36, 28, 0.06);
+  --color-shadowCard: rgba(20, 36, 28, 0.05);
+  --color-shadowCardHover: rgba(20, 36, 28, 0.08);
 
   /* fonts */
   --font-family-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-family-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-family-display: 'Spectral', Georgia, 'Times New Roman', serif;
   --font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 }
 

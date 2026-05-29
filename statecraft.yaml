@@ -14,7 +14,8 @@ cssEngine: compiled
 source:
   live: true
 
-stylesheets: []
+stylesheets:
+  - "https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
 globalCss: ""
 
 tokens:
@@ -22,36 +23,36 @@ tokens:
   # Statecraft injects matching :root vars into each canvas iframe, so the
   # editor's component previews reflect any rebrand applied to globals.css.
   colors:
-    primary: "#c14a2a"
-    primaryHover: "#a13a1f"
-    primaryTint: "rgba(193, 74, 42, 0.08)"
-    primaryTintSubtle: "rgba(193, 74, 42, 0.06)"
-    primaryTintMid: "rgba(193, 74, 42, 0.12)"
-    primaryTintStrong: "rgba(193, 74, 42, 0.18)"
-    primaryGradientEnd: "#e8a285"
-    danger: "#b8392a"
-    dangerHover: "#9a2c20"
-    success: "#3d7a4a"
-    successTint: "rgba(61, 122, 74, 0.14)"
-    textPrimary: "#1f1812"
-    textMuted: "#6b5d52"
-    textFaint: "#a89c8c"
-    textDisabled: "#c9bca6"
+    primary: "#1f6e4a"
+    primaryHover: "#185839"
+    primaryTint: "rgba(31, 110, 74, 0.08)"
+    primaryTintSubtle: "rgba(31, 110, 74, 0.05)"
+    primaryTintMid: "rgba(31, 110, 74, 0.12)"
+    primaryTintStrong: "rgba(31, 110, 74, 0.18)"
+    primaryGradientEnd: "#6fbf8e"
+    danger: "#c1402f"
+    dangerHover: "#a3331f"
+    success: "#2f8f5b"
+    successTint: "rgba(47, 143, 91, 0.14)"
+    textPrimary: "#14241c"
+    textMuted: "#5a6b60"
+    textFaint: "#92a097"
+    textDisabled: "#c2ccc4"
     textOnPrimary: "#ffffff"
-    bgPage: "#f5ede0"
-    bgCard: "#fffaf2"
-    bgSurface: "#f0e6d4"
-    bgSurfaceAlt: "#ebe3d4"
-    bgSubtle: "#e7dcc6"
-    border: "#e0d6c4"
-    borderStrong: "#c9bca6"
-    borderHover: "#b8a98f"
-    ghostHover: "rgba(31, 24, 18, 0.06)"
-    shadowCard: "rgba(31, 24, 18, 0.06)"
-    shadowCardHover: "rgba(31, 24, 18, 0.08)"
+    bgPage: "#f4f6f1"
+    bgCard: "#ffffff"
+    bgSurface: "#eef2ea"
+    bgSurfaceAlt: "#e9efe4"
+    bgSubtle: "#e3ebdd"
+    border: "#dde4d6"
+    borderStrong: "#ccd6c3"
+    borderHover: "#b8c5ad"
+    ghostHover: "rgba(20, 36, 28, 0.06)"
+    shadowCard: "rgba(20, 36, 28, 0.05)"
+    shadowCardHover: "rgba(20, 36, 28, 0.08)"
   fontFamilies:
     body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-    display: "'Fraunces', Georgia, 'Times New Roman', serif"
+    display: "'Spectral', Georgia, 'Times New Roman', serif"
     mono: "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace"
 
 fallbackProps:
